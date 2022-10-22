@@ -13,7 +13,7 @@
 1. npm install
 2. npm run start รัน react
 ```
-## Css framework
+## CSS framework
 ```
 Bootstrap : react-bootstrap
 Documentation : https://react-bootstrap.github.io/
