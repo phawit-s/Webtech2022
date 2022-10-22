@@ -18,7 +18,7 @@
 Bootstrap : react-bootstrap
 Documentation : https://react-bootstrap.github.io/
 ```
-## เพิ่ม file ใหม่
+## เพิ่มไฟล์ใหม่
 ```
 1. เพิ่มในโฟลเดอร์ components
 2. พยายามแยก component เช่น
