@@ -20,7 +20,7 @@ Documentation : https://react-bootstrap.github.io/
 ```
 ## เพิ่ม file ใหม่
 ```
-1. เพิ่มในไฟล์ components
+1. เพิ่มในโฟลเดอร์ components
 2. พยายามแยก component เช่น
     หน้าสินค้า
       - product.js
