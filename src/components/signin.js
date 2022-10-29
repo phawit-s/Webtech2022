@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -7,39 +7,83 @@ import Button from "react-bootstrap/Button";
 import Stack from "react-bootstrap/Stack";
 import { useAuth } from "../contexts/AuthContext";
 import Form from "react-bootstrap/Form";
-import Card from "react-bootstrap/Card";
 
 const Signin = () => {
+  const { currentUser, testuser } = useAuth(); // use state,function from authcontext
+
+  useEffect(() => {
+    testuser(); // use function from authcontext
+  }, []);
+  console.log(currentUser); // use state from authcontext
 
   return (
-    <div style={StyleRegister}>
-      <Container>
-        <Row className="justify-content-center">
-            <Card className="rounded-3 mt-5 py-3 px-4">
-                <Form>
-                <Form.Group className="mb-4 my-3" controlId="formGroupEmail">
-                  <Form.Label>User Name</Form.Label>
-                  <Form.Control type="username" />
+    <>
+      <style type="text/css">
+        {`
+        .wrap{
+          position: relative;
+          color: #F3DED9;
+          padding: 7em 0; 
+        }
+        .btn-submit {
+          width : 100%;
+          border-radius: 40px;
+          background: #00b495 !important;
+          border: 1px solid #00b495
+        }
+        .form-group {
+          position: relative;
+        }
+        .form-control {
+          border: none;
+          height: 50px;
+          border: 1px solid transparent;
+          background: rgba(255, 255, 255, 0.15);
+          border-radius: 40px;
+          padding-left: 20px;
+          padding-right: 20px;
+          width: 100%;
+        }
+        .form-control::-webkit-input-placeholder {
+          color: #F3DED9;
+        }
+        `}
+      </style>
+
+      <div style={StyleBody}>
+        <Container>
+          <Row>
+            <div className="wrap col-6 mx-auto">
+              <Form>
+                <h3 class="mb-4 text-center">MEMBER LOGIN</h3>
+                <Form.Group className="mb-4 my-3">
+                  <Form.Control type="email" placeholder="Email Address" />
                 </Form.Group>
-                <Form.Group className="mb-4" controlId="formGroupPassword">
-                  <Form.Label>Password</Form.Label>
-                  <Form.Control type="password"/>
+                <Form.Group className="mb-4">
+                  <Form.Control type="password" placeholder="Password" />
                 </Form.Group>
-                <Button variant="primary px-3" type="submit">Submit</Button>
+                <Form.Group className="mb-4">
+                  <Button variant="submit px-3" type="submit">LOGIN</Button>
+                </Form.Group>
+                <p2 class="text-center">New Member ? </p2>
+                <Link to="/register"><p2 style={StyleBody.underline}>Sign up Now </p2></Link>
               </Form>
-            </Card>
-        </Row>
-      </Container>
-    </div>
+            </div>
+          </Row>
+        </Container>
+      </div>
+    </>
   );
 };
 
 export default Signin;
-const StyleRegister={
-      backgroundImage: "url('https://www.stormforge.io/wp-content/uploads/2020/10/mountain-scape-uai-1440x960.jpg')",
-      backgroundPosition: 'center',
-      backgroundSize: 'cover',
-      backgroundRepeat: 'no-repeat',
-      width: '100vw',
-      height: '100vh'
+const StyleBody = {
+  backgroundImage: "url('https://img.freepik.com/free-photo/beautiful-shot-golden-gate-bridge-with-amazing-clear-blue-sky_181624-1777.jpg?w=996&t=st=1667019026~exp=1667019626~hmac=c8bf712dd1056f4cbbb1894d6f53c84ef565eb7aa00576423081754fafd2b87e')",
+  backgroundPosition: 'center',
+  backgroundSize: 'cover',
+  backgroundRepeat: 'no-repeat',
+  width: '100vw',
+  height: '100vh',
+
+  underline: {textDecorationLine: 'underline', color: 'white' }
 };
