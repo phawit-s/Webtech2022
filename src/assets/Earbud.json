@@ -1,0 +1,226 @@
+[
+  {
+    "name": "หูฟัง VE Monk Plus Slim metal Earbud",
+    "description": {
+      "product_details": {
+        "details": "",
+        "key_highlight": [],
+        "connection": [],
+        "accessories": []
+      },
+      "product_features": {
+        "type": "หูฟังเอียร์บัด",
+        "port_input": ["AUX (3.5mm)", "Analog 2.5 mm", "Balanced 4.4 mm"],
+        "bluetooth_version": "",
+        "microphone": false
+      }
+    },
+    "category": "Earbud headphone",
+    "brand": "Venture Electronics",
+    "price": 890,
+    "product_options": [
+      {
+        "name": "2.5mm",
+        "image_name": ["10_2-5mm_01.jpg", "10_2-5mm_02.jpg"]
+      },
+      {
+        "name": "3.5mm",
+        "image_name": ["10_3-5mm_01.jpg", "10_3-5mm_02.jpg"]
+      },
+      {
+        "name": "4.4mm",
+        "image_name": ["10_4-4mm_01.jpg", "10_4-4mm_02.jpg"]
+      }
+    ]
+  },
+  {
+    "name": "หูฟัง VE Sun Copper Earbud",
+    "description": {
+      "product_details": {
+        "details": "VE หรือ Ventures Electronics เป็นแบรนด์ที่เชี่ยวชาญในการทำหูฟังประเภท Earbud โดยเฉพาะสร้างชื่อเสียงมากๆในรุ่น VE Zen และหูฟัง Earbud Budget ที่โด่งดังอย่าง VE Monk ที่ทำออกมาให้เสียงดีเกินราคาไปเทียบเท่ากับหูฟังระดับพันบาทเลย โดดจุดเด่นหลักของแบรนด์นี้คือเสียงที่ติดหูง่ายจึงทำให้เป็นที่ชื่นชอบของเหล่านักฟังทั่วโลก โดยรุ่น หูฟัง VE Sun Copper Earbud เป็นหูฟัง Earbud ระดับ Flagship ระดับ Top สุดของแบรนด์ที่ได้เสริมในเสียงของ Housing ที่ทำจากทองแดง โดยตัวหูฟังนั้นออกแบบมาเป็นสาย Fixed ไม่สามารถถอดเปลี่ยนได้แต่สายที่ติดมาให้นั้นมีคุณภาพสูงอยู่แล้ว และสายที่ติดมานั้นเรียกได้ว่าจัดเต็มสุดๆ โดยจะใช้วัสดุแบบ LLC (long crystal copper) คุณภาพสายที่เหนือกว่าไปอีกขั้น<br>ด้วย Impedance สูงถึง180 ohm จึงต้องใช้กับ DAP หรือ DAC/Amp ถึงจะแสดงประสิทธิภาพได้เต็มที่ จึงทำให้หูฟัง VE Sun Copper Earbud เหมาะสำหรับนักเล่นหูฟังสาย Earbud ที่ต้องการ Earbud ตัวจบที่ตัวหนึ่งที่จัดเต็มในทุกๆ ด้านไม่ว่าจะเป็นตัว Driver เองหรือสายแบบ LLC ที่เป็นทองแดงคุณภาพสูงสุด และ Housing ที่ออกแบบมาโดยใช้วัสดุทองแดงทำให้มีเสียงเป็นเอกลักษณะเฉพาะของวัสดุอีกด้วย",
+        "key_highlight": [
+          "หูฟัง Earbud ระดับ Flagship",
+          "ไดรเวอร์ Dynamic 15.4 mm",
+          "ใช้แม่เหล็กแรงสูง Neodymium N52",
+          "ใช้สายทองแดง LLC",
+          "สายยาว 1.2 เมตร"
+        ],
+        "connection": ["Single End 3.5mm หรือ Balanced 2.5 / 4.4mm"],
+        "accessories": [
+          "หูฟัง VE Sun Copper Earbud",
+          "Ex-Pack",
+          "Air-Pack",
+          "Earhook",
+          "TRRS Adaptor",
+          "กล่องใส่หูฟัง",
+          "คู่มือ"
+        ]
+      },
+      "product_features": {
+        "type": "หูฟังเอียร์บัด",
+        "port_input": ["AUX (3.5mm)", "Balanced 4.4 mm"],
+        "bluetooth_version": "",
+        "microphone": false
+      }
+    },
+    "category": "หูฟังเอียร์บัด",
+    "brand": "Venture Electronics",
+    "price": 20990,
+    "product_options": [
+      {
+        "name": "3.5mm",
+        "image_name": [
+          "11_VESun_01.jpg",
+          "11_VESun_02.jpg",
+          "11_VESun_03.jpg",
+          "11_VESun_04.jpg"
+        ]
+      },
+      {
+        "name": "4.4mm",
+        "image_name": [
+          "11_VESun_01.jpg",
+          "11_VESun_02.jpg",
+          "11_VESun_03.jpg",
+          "11_VESun_04.jpg"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "หูฟัง VE Monk PLUS SPC Edition Balanced 2.5 mm",
+    "description": {
+      "product_details": {
+        "details": "",
+        "key_highlight": [],
+        "connection": [],
+        "accessories": []
+      },
+      "product_features": {
+        "type": "หูฟังเอียร์บัด",
+        "port_input": ["2.5 mm"],
+        "bluetooth_version": "",
+        "microphone": true
+      }
+    },
+    "category": "หูฟังเอียร์บัด",
+    "brand": "Venture Electronics",
+    "price": 1200,
+    "product_options": [
+      {
+        "name": "2.5 mm",
+        "image_name": ["12_VEMonk_01.jpg"]
+      }
+    ]
+  },
+  {
+    "name": "หูฟัง Fiio EM3K Earbud",
+    "description": {
+      "product_details": {
+        "details": "หูฟัง FiiO Earbud EM3K เป็นหูฟังเอียร์บัดทรง Classic จาก FiiO ที่ถ้ามใครเกิดในช่วงปี 2000 น่าจะชินกับหูฟังทรงนี้น่าดู แน่นอนว่าหูฟังทรงคลาสสิคตัวนี้ก็คงจะเปิดตัวมาเพื่อขายเด็ก ๆ ที่เคยผ่านยุค 90 – 2000 มาก่อน ไปจนถึงเด็กวัยรุ่นสมัยใหม่ที่ต้องการหูฟังทรงคลาสสิคเรโทรเพื่อใช้งานในการแต่ตัวและแฟชั่นนั่นเอง แน่นอนนอกจากจะตอบสนองความต้องการทางแฟชั่นได้แล้ว เจ้าหูฟัง FiiO Earbud EM3K ยังสามารถใช้งานได้อย่างยอดเยี่ยมตามราคาของมันอีกด้วย โดยมันสามารถขับเสียงช่วงกลางเสียงได้อย่างยอดเยี่ยม มีรายละเอียดในขณะที่บรรยากาศของเสียงมีความเป็นเรโทรเล็ก ๆ นั่นเอง ตัวหูฟังไม่ได้มี In-line Control มาให้เหมือนกับรุ่น EM3S เหมาะสำหรับแฟชั่นมากกว่าและให้เสียงที่เสถียรกว่าตามความเชื่อนั่นเอง โดยราคาของหูฟังตัวนี้อยู่ที่ 390 บาทเท่านั้น ซึ่งถือว่าถูกมาก ๆ แต่ก็สามารถใช้งานได้อย่างยอดเยี่ยม การันตีด้วยแบรนด์ FiiO เอง",
+        "key_highlight": [
+          "หูฟัง Ear bud สวมใส่ง่าย",
+          "รูปทรงแบบ Classic เท่าเก๋ไก๋ ",
+          "ราคาประหยัดเข้าถึงง่าย",
+          "เหมาะทั้งใช้งานจริงและแฟชั่น"
+        ],
+        "connection": ["AUX 3.5"],
+        "accessories": ["1x หูฟัง Fiio EM3K Earbud", "3x ฟองน้ำคลุมหูฟัง"]
+      },
+      "product_features": {
+        "type": "หูฟังเอียร์บัด",
+        "port_input": ["AUX (3.5mm)"],
+        "bluetooth_version": "",
+        "microphone": false
+      }
+    },
+    "category": "หูฟังเอียร์บัด",
+    "brand": "Fiio",
+    "price": 390,
+    "product_options": [
+      {
+        "name": "Black",
+        "image_name": ["13_Fiio_01.jpg", "13_Fiio_02.jpg"]
+      }
+    ]
+  },
+  {
+    "name": "หูฟัง Audio-Technica ATH-CM2000TI Earbud",
+    "description": {
+      "product_details": {
+        "details": "หูฟัง Audio-Technica ATH-CM2000TI Earbud ราคาเหมาะกับระดับโปร เหมาะกับผู้ที่มองหาสินค้าประเภท หูฟังเอียบัด ที่ให้เสียงระดับท๊อป รวมไปถึงผู้ที่มองหาสินค้าระดับโปรแต่ไม่ชอบ หูฟัง In-Ear ที่ต้องสวมใส่ด้วยการสอดหู ด้วยในปัจจุบันที่สินค้าประเภทสอดหูได้รับความนิยมในตลาดมากขึ้น ทำให้ ATH-CM2000TI ถือเป็นเพชรน้ำงาม และเป็นสินค้าที่จะต้องมาตอบโจทย์ผู้ที่กำลังรอสินค้าประเภท Earbud ระดับท๊อปอย่างแน่นอน และด้วยสเปคภายในที่ให้มาแบบไม่มีกั๊ก ไม่ว่าจะเป็นไดรเวอร์แบบ HD, Diaphragms แบบเคลือบ DLC (Diamond-like carbon) วัสดุ Housing ระดับพรีเมียมอย่าง Pure Titanium สายที่ถอดเปลี่ยนได้ตามต้องการโดยใช้ขั้วสายแบบ A2DC สำหรับผู้ที่อยากอัพเกรดเสียงให้ดียิ่งขึ้น",
+        "key_highlight": [
+          "หูฟังแปะหู Earbud ระดับโปร",
+          "ไดรเวอร์ภายในแบบ HD ขนาด 15.4 มม.",
+          "Diaphragms เคลือบ DLC แบบพิเศษ",
+          "วัสดุบอดี้ Housing ทำจาก Titanium",
+          "สายแบบถอดเปลี่ยนได้ ขั้วแบบ A2DC",
+          "มาพร้อมสาย 3.5 และ 4.4 mm.",
+          "แต่ละข้างสลักเลขซีเรียลด้วยเลเซอร์"
+        ],
+        "connection": ["AUX/3.5 mm.", "Balanced 4.4 mm."],
+        "accessories": [
+          "1 x Audio-Technica ATH-CM2000TI",
+          "1 x เคสสำหรับเก็บพกพา",
+          "1 x ฟองน้ำครอบ Earbud",
+          "1 x ผ้าสำหรับเช็ดทำความสะอาด"
+        ]
+      },
+      "product_features": {
+        "type": "หูฟังเอียร์บัด",
+        "port_input": ["AUX (3.5mm)"],
+        "bluetooth_version": "",
+        "microphone": false
+      }
+    },
+    "category": "หูฟังเอียร์บัด",
+    "brand": "Audio-Technica",
+    "price": 15900,
+    "product_options": [
+      {
+        "name": "3.5mm",
+        "image_name": [
+          "14_AudioTechnica_01.jpg",
+          "14_AudioTechnica_02.jpg",
+          "14_AudioTechnica_03.jpg"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "หูฟัง Ostry KC08T Earbud",
+    "description": {
+      "product_details": {
+        "details": "แบรนด์ Ostry เป็นแบรนด์จากประเทศจีน ที่มีประสบการณ์ที่ต้องถือว่าเก่าแก่ในการผลิตหูฟังให้กับบริษัทยักษ์ใหญ่ต่าง ๆ จนได้มาก่อนตั้งแบรนด์ของตัวเอง และได้เป็นที่ยอมรับอย่างกว้างขวาง ด้วยวัสดุที่นำมาทำหูฟัง การดีไซน์ที่สวยงาม แถมมาในราคาที่คุ้มค่า<br>มาในครั้งนี้จะมาพูดถึง Ostry KC08T เป็นหูฟัง Earbud มีการพัฒนามาจาก KC08 มีการออกแบบที่หน้าตาสวยงาม ดูสง่า เรียกได้ว่าเป็นหูฟังระกับ Hi-end เลยก็ว่าได้ นอกจากหน้าตาที่สวยงาม วัสดุที่ทำตัว Hosing ก็ทำจาก Titanium ให้ผิวสัมผัสที่เรียบ มีความแข็งแรง ทนทาน น้ำหนักเบา ตัวสายหูฟังจะเป็นสายแบบถักทำมากจากฝ้าย มีความทนทานต่อการใช้งาน ตัวหัวแจ็คก็ทำจากโลหะมาอย่างแข็งแรง แถมยังพกพาสะดวกอีกด้วย<br>เจ้า Ostry KC08T ได้ผสมผสานเทคโนโลยี Balance Armature จากหูฟังรุ่น KC06 ใช้ไดร์เวอร์ขนาด 16 mm ให้ย่านความถี่เสียงตั้งแต่ 20Hz - 20kHz ให้เสียงที่เคลียร์ ใส และยังมาในราคาที่ต้องเรียกได้ว่าคุ้มค่ามาก ๆ กับคุณภาพของหูฟัง",
+        "key_highlight": [],
+        "connection": ["3.5 mm"],
+        "accessories": [
+          "1 x หูฟัง Ostry KC08T",
+          "2 x ฟองน้ำสำหรับหุ้มหูฟัง",
+          "1 x กล่องสำหรับใส่หูฟัง",
+          "1 x คู่มือการใช้งาน"
+        ]
+      },
+      "product_features": {
+        "type": "หูฟังเอียร์บัด",
+        "port_input": ["AUX (3.5mm)"],
+        "bluetooth_version": "",
+        "microphone": false
+      }
+    },
+    "category": "หูฟังเอียร์บัด",
+    "brand": "Ostry",
+    "price": 6990,
+    "product_options": [
+      {
+        "name": "3.5mm",
+        "image_name": [
+          "15_Ostry_01.jpg",
+          "15_Ostry_02.jpg",
+          "15_Ostry_03.jpg",
+          "15_Ostry_04.jpg"
+        ]
+      }
+    ]
+  }
+]
