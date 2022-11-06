@@ -8,10 +8,12 @@ const AuthContext = createContext({
   filterbrands: null,
   filterprice: null,
   datasort: null,
+  productcart: null,
   favouriteProduct: () => Promise,
   filterbybrand: () => Promise,
   filterbyprice: () => Promise,
   sortbyprice: () => Promise,
+  addtocart: () => Promise,
 });
 
 export const useAuth = () => useContext(AuthContext);
@@ -20,14 +22,23 @@ export const AuthProvider = ({ children }) => {
   const [filterbrands, setFilterBrands] = useState(null);
   const [filterprice, setFilterPrice] = useState(null);
   const [datasort, setDataSort] = useState(null);
+  const [productcart, setProductCart] = useState(null);
 
   async function favouriteProduct(name, image_name, price) {
-    setFavproduct({
+    const getfavproductStorage = window.localStorage.getItem("favoriteproduct");
+    
+    let productdata = {
       name: "หูฟัง Sony WH-1000XM5 Wireless Over Ear Headphone",
       image: ["01_black_01.jpg", "01_black_02.jpg"],
       price: 14490,
-    });
+    };
+      let itemsList = getfavproductStorage ? JSON.parse(getfavproductStorage): []
+      setFavproduct(itemsList)
+      itemsList.push(productdata);
+      window.localStorage.setItem("favoriteproduct", JSON.stringify(itemsList));
   }
+
+  
 
   async function filterbybrand(brand, category) {
     if (category === "In Ear") {
@@ -83,7 +94,7 @@ export const AuthProvider = ({ children }) => {
       if (category === "Bluetooth-Speaker") {
         setDataSort(speakerdata.sort((a, b) => a.price - b.price));
       }
-    }else{
+    } else {
       if (category === "In Ear") {
         setDataSort(ineardata.sort((a, b) => b.price - a.price));
       }
@@ -99,15 +110,30 @@ export const AuthProvider = ({ children }) => {
     }
   }
 
+  async function addtocart(name, image_name, price) {
+    const getcartproductStorage = window.localStorage.getItem("productcart");
+    let productdata = {
+      name: "หูฟัง Sony WH-1000XM5 Wireless Over Ear Headphone",
+      image: ["01_black_01.jpg", "01_black_02.jpg"],
+      price: 14490,
+    };
+      let itemsList = getcartproductStorage ? JSON.parse(getcartproductStorage): []
+      setProductCart(itemsList)
+      itemsList.push(productdata);
+      window.localStorage.setItem("productcart", JSON.stringify(itemsList));
+  }
+
   const value = {
     favproduct,
     filterbrands,
     filterprice,
     datasort,
+    productcart,
     favouriteProduct,
     filterbybrand,
     filterbyprice,
     sortbyprice,
+    addtocart,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

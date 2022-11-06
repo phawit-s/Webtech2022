@@ -14,16 +14,19 @@ const Home = () => {
     filterbrands,
     filterprice,
     datasort,
+    productcart,
     favouriteProduct,
     filterbybrand,
     filterbyprice,
     sortbyprice,
+    addtocart
   } = useAuth(); // use state,function from authcontext
 
   useEffect(() => {
-    sortbyprice("high","In Ear"); // use function from authcontext
+    addtocart()// use function from authcontext
   }, []);
-  console.log(datasort); // use state from authcontext
+
+  console.log(productcart); // use state from authcontext
 
   const changepage = () => {
     // go to another path
