@@ -9,14 +9,24 @@ import { useAuth } from "../contexts/AuthContext";
 
 const Home = () => {
   const history = useHistory();
-  const { currentUser, testuser } = useAuth(); // use state,function from authcontext
+  const {
+    favproduct,
+    filterbrands,
+    filterprice,
+    datasort,
+    favouriteProduct,
+    filterbybrand,
+    filterbyprice,
+    sortbyprice,
+  } = useAuth(); // use state,function from authcontext
 
   useEffect(() => {
-    testuser(); // use function from authcontext
+    sortbyprice("high","In Ear"); // use function from authcontext
   }, []);
-  console.log(currentUser); // use state from authcontext
+  console.log(datasort); // use state from authcontext
 
-  const changepage = () => { // go to another path
+  const changepage = () => {
+    // go to another path
     history.push({
       pathname: `/register`,
     });
