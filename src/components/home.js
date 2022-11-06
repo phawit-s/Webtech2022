@@ -23,10 +23,10 @@ const Home = () => {
   } = useAuth(); // use state,function from authcontext
 
   useEffect(() => {
-    addtocart()// use function from authcontext
+    sortbyprice("low", "In Ear")// use function from authcontext
   }, []);
 
-  console.log(productcart); // use state from authcontext
+  console.log(datasort); // use state from authcontext
 
   const changepage = () => {
     // go to another path

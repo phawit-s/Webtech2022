@@ -81,33 +81,19 @@ export const AuthProvider = ({ children }) => {
   }
 
   async function sortbyprice(sortby, category) {
-    if (sortby == "low") {
       if (category === "In Ear") {
-        setDataSort(ineardata.sort((a, b) => a.price - b.price));
+        setDataSort(ineardata.sort((a, b) => sortby=="low" ? a.price - b.price: b.price - a.price));
       }
       if (category === "หูฟังเอียร์บัด") {
-        setDataSort(earbuddata.sort((a, b) => a.price - b.price));
+        setDataSort(earbuddata.sort((a, b) => sortby=="low" ? a.price - b.price: b.price - a.price));
       }
       if (category === "Wireless Headphone") {
-        setDataSort(headphonedata.sort((a, b) => a.price - b.price));
+        setDataSort(headphonedata.sort((a, b) => sortby=="low" ? a.price - b.price: b.price - a.price));
       }
       if (category === "Bluetooth-Speaker") {
-        setDataSort(speakerdata.sort((a, b) => a.price - b.price));
+        setDataSort(speakerdata.sort((a, b) => sortby=="low" ? a.price - b.price: b.price - a.price));
       }
-    } else {
-      if (category === "In Ear") {
-        setDataSort(ineardata.sort((a, b) => b.price - a.price));
-      }
-      if (category === "หูฟังเอียร์บัด") {
-        setDataSort(earbuddata.sort((a, b) => b.price - a.price));
-      }
-      if (category === "Wireless Headphone") {
-        setDataSort(headphonedata.sort((a, b) => b.price - a.price));
-      }
-      if (category === "Bluetooth-Speaker") {
-        setDataSort(speakerdata.sort((a, b) => b.price - a.price));
-      }
-    }
+
   }
 
   async function addtocart(name, image_name, price) {
