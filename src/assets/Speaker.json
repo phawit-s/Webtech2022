@@ -1,5 +1,6 @@
 [
     {
+        "id": 1,
         "name": "ลำโพง Marshall Stockwell II Bluetooth Speaker",
         "description": {
             "product_details": {
@@ -41,20 +42,19 @@
             {
                 "name": "Black",
                 "image_name": [
-                    "22_Black_01.jpg",
                     "22_Black_01.jpg"
                 ]
             },
             {
                 "name": "Black & Brass",
                 "image_name": [
-                    "22_Brass_01.jpg",
                     "22_Brass_01.jpg"
                 ]
             }
         ]
     },
     {
+        "id": 2,
         "name": "ลำโพง Marshall Kilburn II Portable Bluetooth Speaker",
         "description": {
             "product_details": {
@@ -110,6 +110,7 @@
         ]
     },
     {
+        "id": 3,
         "name": "ลำโพงไร้สาย B&O Beolit 20 Bluetooth Speaker",
         "description": {
             "product_details": {
@@ -166,6 +167,7 @@
         ]
     },
     {
+        "id": 4,
         "name": "ลำโพงไร้สาย Tribit StormBox Micro Bluetooth Speaker",
         "description": {
             "product_details": {
@@ -223,6 +225,7 @@
         ]
     },
     {
+        "id": 5,
         "name": "ลำโพง JBL Pulse 4 Portable Bluetooth Speaker",
         "description": {
             "product_details": {
@@ -275,6 +278,7 @@
         ]
     },
     {
+        "id": 6,
         "name": "ลำโพง JBL Flip 5 Portable Bluetooth Speaker",
         "description": {
             "product_details": {

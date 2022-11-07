@@ -1,4 +1,3 @@
-
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -19,7 +18,7 @@ a {
 
 .product-thumbnail {
   border-radius: 20px;
-  border: 1px rgba(0,0,0,0.1) solid !important;
+  border: 1px rgba(0, 0, 0, 0.1) solid !important;
 }
 
 .text-topic {
@@ -34,6 +33,10 @@ a {
   font-size: 16px;
 }
 
+.text-mini {
+  font-size: 13px;
+}
+
 .btn {
   --bs-btn-font-size: 16px !important;
 }
@@ -45,14 +48,14 @@ a {
 .btn-light.menu {
   --bs-btn-hover-bg: none !important;
   --bs-btn-hover-border-color: white !important;
-  --bs-btn-active-bg:none !important;
+  --bs-btn-active-bg: none !important;
   --bs-btn-active-border-color: white !important;
 }
 
 .btn-light.button {
-  --bs-btn-active-bg:none !important;
+  --bs-btn-active-bg: none !important;
   --bs-btn-active-border-color: white !important;
-  --bs-btn-hover-bg:none !important;
+  --bs-btn-hover-bg: none !important;
 }
 
 
@@ -77,6 +80,13 @@ a {
   content: "";
   z-index: 100;
 }
+
+.btn-outline-dark.btnContinueShop {
+  --bs-btn-hover-color: #00b495 !important;
+  --bs-btn-hover-bg: white !important;
+  --bs-btn-hover-border-color: #00b495 !important;
+}
+
 
 /* .changeBg {
   background-color: rgba(236, 0, 0, 0.2);

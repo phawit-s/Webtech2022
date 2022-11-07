@@ -62,7 +62,7 @@ const Wishlist = () => {
                         </Col>
                         <Col md={6}>
                             <Dropdown style={{ float: 'right' }}>
-                                <Dropdown.Toggle variant="light" id="dropdown-basic" className="menu changeBg">
+                                <Dropdown.Toggle variant="light" id="dropdown-basic" className="menu">
                                     <span className="icon is-small">
                                         <i className="fa-solid fa-xl fa-ellipsis-vertical"></i>
                                     </span>
