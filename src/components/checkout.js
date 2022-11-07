@@ -73,7 +73,7 @@ const Checkout = () => {
                                 <Col>
                                     <a>
                                         <span className="icon is-small is-left">
-                                            <i class="fa-solid fa-chevron-left has-text-info"></i>
+                                            <i className="fa-solid fa-chevron-left has-text-info"></i>
                                         </span>
 
                                         <span className="is-right has-text-info">Return to cart</span>

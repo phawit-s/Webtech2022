@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -20,3 +21,69 @@ a {
   border-radius: 20px;
   border: 1px rgba(0,0,0,0.1) solid !important;
 }
+
+.text-topic {
+  font-size: 34px;
+}
+
+.text-name {
+  font-size: 21px;
+}
+
+.text-price {
+  font-size: 16px;
+}
+
+.btn {
+  --bs-btn-font-size: 16px !important;
+}
+
+.dropdown-toggle::after {
+  content: none !important;
+}
+
+.btn-light.menu {
+  --bs-btn-hover-bg: none !important;
+  --bs-btn-hover-border-color: white !important;
+  --bs-btn-active-bg:none !important;
+  --bs-btn-active-border-color: white !important;
+}
+
+.btn-light.button {
+  --bs-btn-active-bg:none !important;
+  --bs-btn-active-border-color: white !important;
+  --bs-btn-hover-bg:none !important;
+}
+
+
+.dropdown-menu {
+  --bs-dropdown-link-active-bg: none !important;
+  --bs-dropdown-border-radius: none !important;
+  --bs-dropdown-link-hover-bg: none !important;
+  --bs-dropdown-border-color: white !important;
+}
+
+.modal {
+  --bs-modal-border-radius: none !important;
+}
+
+.dropdown.show::before {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(100, 100, 100, 0.5);
+  content: "";
+  z-index: 100;
+}
+
+/* .changeBg {
+  background-color: rgba(236, 0, 0, 0.2);
+  z-index: 999999999999;
+} */
+
+/* backgroundDropdown {
+  background-color: rgba(2,2,2,.2);
+  z-index: 99;
+} */

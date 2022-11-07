@@ -77,7 +77,7 @@ const Cart = () => {
                                 <Col md={6} className="py-3" key={item.id}>
                                     <Row>
                                         <Col md={4}>
-                                            <img src={item.image} class="img-fluid" alt="..." />
+                                            <img src={item.image} className="img-fluid" alt="..." />
                                         </Col>
                                         <Col md={8}>
                                             <h5>{item.name}</h5>
@@ -90,20 +90,20 @@ const Cart = () => {
                                 </Col>
                                 <Col md={3} className="py-3 text-center">
                                     <div>
-                                        <div class="btn-group d-inline" role="group" aria-label="Basic example">
+                                        <div className="btn-group d-inline" role="group" aria-label="Basic example">
                                             <button type="button" className="border border-dark border-end-0 rounded-0 btn btn-lg btn-link text-center text-dark " style={{ textDecoration: "none" }}>-</button>
                                             <button type="button" className="border border-dark border-start-0 border-end-0 btn btn-lg btn-link text-center text-dark" style={{ textDecoration: "none" }}>{item.stock}</button>
                                             <button type="button" className="border border-start-0 border-dark rounded-0 btn btn-lg btn-link text-center text-dark" style={{ textDecoration: "none" }}>+</button>
                                         </div>
                                         <div className="d-inline px-3">
-                                            <button type="button" class="border border-0 btn" onClick={() => {
+                                            <button type="button" className="border border-0 btn" onClick={() => {
                                                 // TODO: Delete data at index `index`
                                                 const updatedCartItems = [...cartItems]
                                                 updatedCartItems.splice(i, 1)
                                                 setCartItems(updatedCartItems)
                                             }}>
                                                 <span className="icon is-small">
-                                                    <i class="fa-regular fa-trash-can"></i>
+                                                    <i className="fa-regular fa-trash-can"></i>
                                                 </span>
                                             </button>
                                         </div>
