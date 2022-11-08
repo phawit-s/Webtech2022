@@ -10,30 +10,6 @@ import rawItem from '../assets/Speaker.json';
 
 const Cart = () => {
 
-    // const data = [
-    //     {
-    //         "id": 1,
-    //         "name": "หูฟัง Sony WH-1000XM5 Wireless Over Ear Headphone",
-    //         "price": 14490.00,
-    //         "stock": 10,
-    //         "image": "https://cdn.shopify.com/s/files/1/0289/3692/products/S-PRT123_1_bdd5fc4d-9372-47e2-99c4-c3f6067c5b63.jpg?v=1664887154"
-    //     },
-    //     {
-    //         "id": 2,
-    //         "name": "หูฟัง Sony WH-1000XM5 Wireless Over Ear Headphone",
-    //         "price": 15490.00,
-    //         "stock": 10,
-    //         "image": "https://cdn.shopify.com/s/files/1/0289/3692/products/S-PRT123_1_bdd5fc4d-9372-47e2-99c4-c3f6067c5b63.jpg?v=1664887154"
-    //     },
-    //     {
-    //         "id": 3,
-    //         "name": "หูฟัง Sony WH-1000XM5 Wireless Over Ear Headphone",
-    //         "price": 16490.00,
-    //         "stock": 10,
-    //         "image": "https://cdn.shopify.com/s/files/1/0289/3692/products/S-PRT123_1_bdd5fc4d-9372-47e2-99c4-c3f6067c5b63.jpg?v=1664887154"
-    //     }
-    // ]
-
     const [items, setItems] = useState([...rawItem])
     const [itemsInCart, setItemsInCart] = useState([...items.map((_) => 1)])
     // const [cartItems, setCartItems] = useState(0)
@@ -74,8 +50,10 @@ const Cart = () => {
                         <Col>
                             <h1 className="text-topic">Your cart</h1>
                         </Col>
-                        <Col className="pt-3">
-                            <button href="/" style={{ float: 'right' }} type="button" className="btn btn-outline-dark rounded-pill btnContinueShop" >Continue Shopping</button>
+                        <Col className="pt-2">
+                            <Link to="/" className="cartCheckout">
+                                <button style={{ float: 'right' }} type="button" className="btn btn-outline-dark rounded-pill btnContinueShop " >Continue Shopping</button>
+                            </Link>
                         </Col>
                     </Row>
                 </div>
@@ -115,8 +93,8 @@ const Cart = () => {
                                             </Carousel>
                                         </Col>
                                         <Col md={8}>
-                                            <h5 className="text-price">{item.name}</h5>
-                                            <h6 className="text-price">{item.price.toLocaleString('th-TH', {
+                                            <h5 className="text-small">{item.name}</h5>
+                                            <h6 className="text-small">{item.price.toLocaleString('th-TH', {
                                                 style: 'currency',
                                                 currency: 'THB'
                                             })}</h6>
@@ -145,7 +123,7 @@ const Cart = () => {
                                     </div>
                                 </Col>
                                 <Col md={3} className="py-3" >
-                                    <h5 className="text-price" style={{ float: 'right' }}>{(item.price * itemsInCart[i]).toLocaleString('th-TH', {
+                                    <h5 className="text-small" style={{ float: 'right' }}>{(item.price * itemsInCart[i]).toLocaleString('th-TH', {
                                         style: 'currency',
                                         currency: 'THB'
                                     })}</h5>
@@ -160,12 +138,12 @@ const Cart = () => {
                         <Col></Col>
                         <Col>
                             <div className="text-end pt-5">
-                                <h4 className="text-name pb-2">Subtotal {subTotalPrice.toLocaleString('th-TH', {
+                                <h4 className="text-medium pb-2">Subtotal {subTotalPrice.toLocaleString('th-TH', {
                                     style: 'currency',
                                     currency: 'THB'
                                 })} THB</h4>
-                                <h4 className="text-price fw-light">Tax included and shipping calculated at</h4>
-                                <h4 className="text-price fw-light pb-2">checkout</h4>
+                                <h4 className="text-small fw-light">Tax included and shipping calculated at</h4>
+                                <h4 className="text-small fw-light pb-2">checkout</h4>
                                 <Row>
                                     <Button type="submit" href="/checkout" className="rounded-pill btn-lg text-topic" style={{ backgroundColor: '#16193a', borderColor: '#16193a' }}>Checkout</Button>
                                 </Row>

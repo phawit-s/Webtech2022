@@ -71,13 +71,13 @@ const Wishlist = () => {
                                 <Dropdown.Menu>
                                     <Dropdown.Item className="text-danger" onClick={handleShow}>
                                         <i className="fa-regular fa-trash-can"></i>{" "}
-                                        <span className="text-price">Clear List</span>
+                                        <span className="text-small">Clear List</span>
                                     </Dropdown.Item>
                                 </Dropdown.Menu>
 
                                 <Modal show={show} onHide={handleClose} centered>
-                                    <Modal.Title className="text-name text-center px-5 pt-5">Are you sure?</Modal.Title>
-                                    <Modal.Body className="text-price text-center">Do you want to remove all products from My Wishlist?</Modal.Body>
+                                    <Modal.Title className="text-medium text-center px-5 pt-5">Are you sure?</Modal.Title>
+                                    <Modal.Body className="text-small text-center">Do you want to remove all products from My Wishlist?</Modal.Body>
                                     <Modal.Body className="px-5 pb-5">
                                         <Row className="py-3">
                                             <Button variant="secondary" onClick={() => {
@@ -128,9 +128,9 @@ const Wishlist = () => {
                                                     onChange={handleCheck} />
                                             </Col>
                                             <Col md={10} className="pb-3">
-                                                <h3 className="pb-2 text-name">{item.name}</h3>
+                                                <h3 className="pb-2 text-medium">{item.name}</h3>
                                                 <h5>
-                                                    <span className="is-right has-text-info text-price">{item.price.toLocaleString('th-TH', {
+                                                    <span className="is-right has-text-info text-small">{item.price.toLocaleString('th-TH', {
                                                         style: 'currency',
                                                         currency: 'THB'
                                                     })}</span>
@@ -154,8 +154,8 @@ const Wishlist = () => {
                 </Row>
                 <Row >
                     <div className="text-end fixed-bottom px-5 py-3 bg-light">
-                        <h4 className="d-inline px-4 text-name">Selected {count} Products</h4>
-                        <h4 className="d-inline text-name">Subtotal {subTotalPrice.toLocaleString('th-TH', {
+                        <h4 className="d-inline px-4 text-medium">Selected {count} Products</h4>
+                        <h4 className="d-inline text-medium">Subtotal {subTotalPrice.toLocaleString('th-TH', {
                             style: 'currency',
                             currency: 'THB'
                         })}</h4>

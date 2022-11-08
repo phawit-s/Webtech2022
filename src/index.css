@@ -12,9 +12,16 @@ code {
     monospace;
 }
 
+a.linkCheckout {
+  text-decoration: none !important;
+  color: #1878b9 !important;
+}
+
+
 a {
   text-decoration: none !important;
 }
+
 
 .product-thumbnail {
   border-radius: 20px;
@@ -25,11 +32,11 @@ a {
   font-size: 34px;
 }
 
-.text-name {
+.text-medium {
   font-size: 21px;
 }
 
-.text-price {
+.text-small {
   font-size: 16px;
 }
 
@@ -85,8 +92,48 @@ a {
   --bs-btn-hover-color: #00b495 !important;
   --bs-btn-hover-bg: white !important;
   --bs-btn-hover-border-color: #00b495 !important;
+  --bs-btn-active-bg: none !important;
+  --bs-btn-active-border-color: none !important;
+  --bs-btn-padding-x: 1.8rem !important;
+  --bs-btn-padding-y: 0.7rem !important;
 }
 
+.carousel-indicators [data-bs-target] {
+  box-sizing: border-box !important;
+}
+
+
+.colorCheckout {
+  color: #1878b9;
+}
+
+.btn.colorBtnCheckout {
+  --bs-btn-bg: #1878b9;
+  --bs-btn-border-color: #1878b9;
+  --bs-btn-hover-bg: #124c74;
+  --bs-btn-hover-border-color: #124c74;
+  --bs-btn-active-bg: #1878b9;
+  --bs-btn-active-border-color: #1878b9;
+  --bs-btn-disabled-bg: #1878b9;
+  --bs-btn-disabled-border-color: #1878b9;
+  --bs-btn-padding-x: 1.6rem !important;
+  --bs-btn-padding-y: 1.2rem !important;
+  font-size: 16px;
+  /* background-color: #1878b9; */
+}
+
+.btn.colorBtnApply {
+  --bs-btn-padding-x: 1.3rem !important;
+  --bs-btn-padding-y: 0.6rem !important;
+}
+
+.form-control.checkout {
+  line-height: 2;
+}
+
+.form-select.checkout {
+  line-height: 2;
+}
 
 /* .changeBg {
   background-color: rgba(236, 0, 0, 0.2);
