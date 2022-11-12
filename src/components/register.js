@@ -55,7 +55,7 @@ const Register = () => {
           <Row>
             <div className="wrap col-6 mx-auto">
               <Form>
-                <h3 class="mb-4 text-center">CREATE ACCOUNT</h3>
+                <h3 className="mb-4 text-center">CREATE ACCOUNT</h3>
                 <Form.Group className="mb-4 my-3">
                   <Form.Control type="username" placeholder="User Name" />
                 </Form.Group>
@@ -71,7 +71,7 @@ const Register = () => {
                 <Form.Group className="mb-4">
                   <Button variant="submit px-3" type="submit">SIGN UP</Button>
                 </Form.Group>
-                <p2 class="text-center">Have already an account ? </p2>
+                <p2 className="text-center">Have already an account ? </p2>
                 <Link to="/signin"><p2 style={StyleBody.underline}>Login here</p2></Link>
               </Form>
             </div>

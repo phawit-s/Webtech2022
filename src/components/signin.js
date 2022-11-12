@@ -55,7 +55,7 @@ const Signin = () => {
           <Row>
             <div className="wrap col-6 mx-auto">
               <Form>
-                <h3 class="mb-4 text-center">MEMBER LOGIN</h3>
+                <h3 className="mb-4 text-center">MEMBER LOGIN</h3>
                 <Form.Group className="mb-4 my-3">
                   <Form.Control type="email" placeholder="Email Address" />
                 </Form.Group>
@@ -65,7 +65,7 @@ const Signin = () => {
                 <Form.Group className="mb-4">
                   <Button variant="submit px-3" type="submit">LOGIN</Button>
                 </Form.Group>
-                <p2 class="text-center">New Member ? </p2>
+                <p2 className="text-center">New Member ? </p2>
                 <Link to="/register"><p2 style={StyleBody.underline}>Sign up Now </p2></Link>
               </Form>
             </div>
