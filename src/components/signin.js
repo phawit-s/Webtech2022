@@ -9,12 +9,12 @@ import { useAuth } from "../contexts/AuthContext";
 import Form from "react-bootstrap/Form";
 
 const Signin = () => {
-  const { currentUser, testuser } = useAuth(); // use state,function from authcontext
+  // const { currentUser, testuser } = useAuth(); // use state,function from authcontext
 
-  useEffect(() => {
-    testuser(); // use function from authcontext
-  }, []);
-  console.log(currentUser); // use state from authcontext
+  // useEffect(() => {
+  //   testuser(); // use function from authcontext
+  // }, []);
+  // console.log(currentUser); // use state from authcontext
 
   return (
     <>
