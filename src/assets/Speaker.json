@@ -42,13 +42,15 @@
             {
                 "name": "Black",
                 "image_name": [
-                    "22_Black_01.jpg","22_Black_02.jpg"
+                    "22_Black_01.jpg",
+                    "22_Black_02.jpg"
                 ]
             },
             {
                 "name": "Black & Brass",
                 "image_name": [
-                    "22_Brass_01.jpg","22_Brass_02.jpg"
+                    "22_Brass_01.jpg",
+                    "22_Brass_02.jpg"
                 ]
             }
         ]
@@ -207,13 +209,15 @@
             {
                 "name": "Black",
                 "image_name": [
-                    "25_Black_01.jpg"
+                    "25_Black_01.jpg",
+                    "25_Black_02.jpg"
                 ]
             },
             {
                 "name": "Blue",
                 "image_name": [
-                    "25_Blue_01.jpg"
+                    "25_Blue_01.jpg",
+                    "25_Blue_02.jpg"
                 ]
             },
             {
