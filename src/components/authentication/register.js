@@ -5,16 +5,10 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Stack from "react-bootstrap/Stack";
-import { useAuth } from "../contexts/AuthContext";
 import Form from "react-bootstrap/Form";
 
-const Signin = () => {
-  // const { currentUser, testuser } = useAuth(); // use state,function from authcontext
+const Register = () => {
 
-  // useEffect(() => {
-  //   testuser(); // use function from authcontext
-  // }, []);
-  // console.log(currentUser); // use state from authcontext
 
   return (
     <>
@@ -55,7 +49,10 @@ const Signin = () => {
           <Row>
             <div className="wrap col-6 mx-auto">
               <Form>
-                <h3 className="mb-4 text-center">MEMBER LOGIN</h3>
+                <h3 className="mb-4 text-center">CREATE ACCOUNT</h3>
+                <Form.Group className="mb-4 my-3">
+                  <Form.Control type="username" placeholder="User Name" />
+                </Form.Group>
                 <Form.Group className="mb-4 my-3">
                   <Form.Control type="email" placeholder="Email Address" />
                 </Form.Group>
@@ -63,10 +60,13 @@ const Signin = () => {
                   <Form.Control type="password" placeholder="Password" />
                 </Form.Group>
                 <Form.Group className="mb-4">
-                  <Button variant="submit px-3" type="submit">LOGIN</Button>
+                  <Form.Control type="password" placeholder="Confirm Passsword" />
                 </Form.Group>
-                <p2 className="text-center">New Member ? </p2>
-                <Link to="/register"><p2 style={StyleBody.underline}>Sign up Now </p2></Link>
+                <Form.Group className="mb-4">
+                  <Button variant="submit px-3" type="submit">SIGN UP</Button>
+                </Form.Group>
+                <p2 className="text-center">Have already an account ? </p2>
+                <Link to="/signin"><p2 style={StyleBody.underline}>Login here</p2></Link>
               </Form>
             </div>
           </Row>
@@ -76,7 +76,7 @@ const Signin = () => {
   );
 };
 
-export default Signin;
+export default Register;
 const StyleBody = {
   backgroundImage: "url('https://img.freepik.com/free-photo/beautiful-shot-golden-gate-bridge-with-amazing-clear-blue-sky_181624-1777.jpg?w=996&t=st=1667019026~exp=1667019626~hmac=c8bf712dd1056f4cbbb1894d6f53c84ef565eb7aa00576423081754fafd2b87e')",
   backgroundPosition: 'center',
