@@ -7,6 +7,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Form, Button, Card, Image, Breadcrumb, Carousel } from "react-bootstrap";
 import rawItem from '../assets/Speaker.json';
+import Navbarcomponent from "./navbar";
 
 const Cart = () => {
 
@@ -44,6 +45,7 @@ const Cart = () => {
 
     return (
         <>
+        <Navbarcomponent />
             <Container className="pb-5">
                 <div className="justify-content-between py-5">
                     <Row >

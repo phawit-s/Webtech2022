@@ -2,6 +2,10 @@ import React from "react";
 import Home from "./components/home";
 import Register from "./components/authentication/register";
 import Signin from "./components/authentication/signin";
+import Headphone from "./components/product/headphone";
+import Earbud from "./components/product/earbud";
+import Inear from "./components/product/inear";
+import Speaker from "./components/product/speaker";
 import Checkout from "./components/checkout";
 import Wishlist from "./components/wishlist";
 import Cart from "./components/cart";
@@ -22,6 +26,10 @@ const App = () => {
             <Route exact path="/" component={Home} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/signin" component={Signin} />
+            <Route exact path="/headphone" component={Headphone} />
+            <Route exact path="/earbud" component={Earbud} />
+            <Route exact path="/inear" component={Inear} />
+            <Route exact path="/speaker" component={Speaker} />
             <Route exact path="/checkout" component={Checkout} />
             <Route exact path="/wishlist" component={Wishlist} />
             <Route exact path="/cart" component={Cart} />

@@ -5,9 +5,10 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Stack from "react-bootstrap/Stack";
+import Navbarcomponent from "./navbar";
 import { useAuth } from "../contexts/AuthContext";
-import { Slide } from 'react-slideshow-image';
-import 'react-slideshow-image/dist/styles.css';
+import { Slide } from "react-slideshow-image";
+import "react-slideshow-image/dist/styles.css";
 
 const Home = () => {
   const history = useHistory();
@@ -21,11 +22,11 @@ const Home = () => {
     filterbybrand,
     filterbyprice,
     sortbyprice,
-    addtocart
+    addtocart,
   } = useAuth(); // use state,function from authcontext
 
   useEffect(() => {
-    sortbyprice("low", "In Ear")// use function from authcontext
+    sortbyprice("low", "In Ear"); // use function from authcontext
   }, []);
 
   console.log(datasort); // use state from authcontext
@@ -36,46 +37,55 @@ const Home = () => {
 
   return (
     <>
-      <style type="text/css">
-        {`
+      <Container fluid>
 
-        `}
-      </style>
-      <Container>
-        <Slide autoplay={true} arrows={false} duration='1700' indicators={true}>
-          <div className="each-slide-effect">
-            <div
-              style={{
-                backgroundImage: 'url(https://d2pz7ev4hh4qcl.cloudfront.net/assets/site_variable/image/3/Header-01.jpg)'
-                , "height": "400px", "width": "900", "background-size": "cover"
-              }}
-            >
+          <Navbarcomponent />
+
+        {/* <Row>
+          <Slide
+            autoplay={true}
+            arrows={false}
+            duration="1700"
+            indicators={true}
+          >
+            <div className="each-slide-effect">
+              <div
+                style={{
+                  backgroundImage:
+                    "url(https://d2pz7ev4hh4qcl.cloudfront.net/assets/site_variable/image/3/Header-01.jpg)",
+                  height: "400px",
+                  width: "900",
+                  "background-size": "cover",
+                }}
+              ></div>
             </div>
-          </div>
-          <div className="each-slide-effect">
-            <div
-              style={{
-                backgroundImage: 'url(https://t4.ftcdn.net/jpg/05/10/52/45/240_F_510524517_U87aQQk7jzLvBdlpbgyZSIR4XmET0kk3.jpg)'
-                , "height": "400px", "width": "900", "background-size": "cover"
-              }}
-            >
+            <div className="each-slide-effect">
+              <div
+                style={{
+                  backgroundImage:
+                    "url(https://t4.ftcdn.net/jpg/05/10/52/45/240_F_510524517_U87aQQk7jzLvBdlpbgyZSIR4XmET0kk3.jpg)",
+                  height: "400px",
+                  width: "900",
+                  "background-size": "cover",
+                }}
+              ></div>
             </div>
-          </div>
-          <div className="each-slide-effect">
-            <div
-              style={{
-                backgroundImage: 'url(https://t3.ftcdn.net/jpg/02/82/19/00/240_F_282190082_3wT9j8kLuhGpda70PNGK6CabxYVtBd25.jpg)'
-                , "height": "400px", "width": "900", "background-size": "cover"
-              }}
-            >
+            <div className="each-slide-effect">
+              <div
+                style={{
+                  backgroundImage:
+                    "url(https://t3.ftcdn.net/jpg/02/82/19/00/240_F_282190082_3wT9j8kLuhGpda70PNGK6CabxYVtBd25.jpg)",
+                  height: "400px",
+                  width: "900",
+                  "background-size": "cover",
+                }}
+              ></div>
             </div>
-          </div>
-        </Slide>
+          </Slide>
+        </Row> */}
       </Container>
     </>
   );
-
-  ;
 };
 
 export default Home;
