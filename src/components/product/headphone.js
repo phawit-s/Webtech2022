@@ -20,20 +20,18 @@ const Headphone = () => {
   const [imageid, setImageid] = useState("");
   const [productid, setProductid] = useState("");
   const [colorid, setColorid] = useState("0");
-  // const changeimage = (index) => {
-  //   setHoverimage(!hoverimage);
-  //   setImageid(index);
-  // };
+  const changeimage = (index) => {
+    setHoverimage(!hoverimage);
+    setImageid(index);
+  };
   const changecolor = (index, index2) => {
-    console.log(data);
-    console.log(index, index2);
     setProductid(index);
     setColorid(index2);
   };
   return (
     <>
       <Navbarcomponent />
-      <Container>
+      <Container className="mt-5">
         <Row className="mb-3">
           <Col>
             <h1 className="text-topic" style={{ color: "#16193a" }}>
@@ -60,32 +58,26 @@ const Headphone = () => {
             return (
               <Col xs={2} md={3} xl={4} className="mb-5" key={index}>
                 <Card style={{ border: "none" }}>
-                  {/* <div
+                  <div
                     onMouseEnter={() => changeimage(index)}
                     onMouseLeave={() => setHoverimage(!hoverimage)}
                     style={{ cursor: "pointer" }}
                   >
-                    {hoverimage && imageid === index ? (
+                    {hoverimage && imageid === index && productid === "" ? (
                       <Image
-                        src={`/image/${productdata.product_options[productid].image_name[1]}`}
+                        src={`/image/${productdata.product_options[0].image_name[1]}`}
                         width={"350px"}
                         height={"350px"}
                       />
-                    ) : (
+                    ) : hoverimage &&
+                      imageid === index &&
+                      productid === index ? (
                       <Image
-                        src={`/image/${productdata.product_options[0].image_name[0]}`}
+                        src={`/image/${productdata.product_options[colorid].image_name[1]}`}
                         width={"350px"}
                         height={"350px"}
                       />
-                    )}
-                  </div> */}
-
-                  <div
-                    // onMouseEnter={() => changeimage(index)}
-                    // onMouseLeave={() => setHoverimage(!hoverimage)}
-                    // style={{ cursor: "pointer" }}
-                  >
-                    {productid === index ? (
+                    ) : productid === index ? (
                       <Image
                         src={`/image/${productdata.product_options[colorid].image_name[0]}`}
                         width={"350px"}
@@ -119,7 +111,10 @@ const Headphone = () => {
                     {productdata.name}
                   </h5>
                   <h6 style={{ marginLeft: "30px", fontSize: "20px" }}>
-                    {productdata.price} baht
+                    {productdata.price.toLocaleString("th-TH", {
+                      style: "currency",
+                      currency: "THB",
+                    })}{" "}
                   </h6>
                 </Card>
               </Col>
