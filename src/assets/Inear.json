@@ -12,12 +12,19 @@
           "วัสดุ Body ทำจากเรซิ่นและโลหะ",
           "ถอดเปลี่ยนสายได้ ขั้วแบบ 2 Pins"
         ],
-        "connection": ["AUX/3.5 mm."],
-        "accessories": ["1 x KZ ZSN PRO X", "1 x คู่มือการใช้งาน"]
+        "connection": [
+          "AUX/3.5 mm."
+        ],
+        "accessories": [
+          "1 x KZ ZSN PRO X",
+          "1 x คู่มือการใช้งาน"
+        ]
       },
       "product_features": {
         "type": "หูฟังอินเอียร์",
-        "port_input": ["AUX (3.5mm)"],
+        "port_input": [
+          "AUX (3.5mm)"
+        ],
         "bluetooth_version": "",
         "microphone": true
       }
@@ -28,11 +35,17 @@
     "product_options": [
       {
         "name": "Black",
-        "image_name": ["16_Black_01.jpg"]
+        "image_name": [
+          "16_Black_01.jpg",
+          "16_Black_02.jpg"
+        ]
       },
       {
         "name": "Gold",
-        "image_name": ["16_Gold_01.jpg"]
+        "image_name": [
+          "16_Gold_01.jpg",
+          "16_Gold_02.jpg"
+        ]
       }
     ]
   },
@@ -49,7 +62,9 @@
           "ไมโครโฟน In-Line รับเสียงชัด",
           "กันน้ำกันเหงื่อได้เป็นอย่างดี"
         ],
-        "connection": ["AUX/3.5 mm."],
+        "connection": [
+          "AUX/3.5 mm."
+        ],
         "accessories": [
           "1 x JBL Endurance Run",
           "1 x จุกหูฟังซิลิโคน (3 คู่)",
@@ -59,7 +74,9 @@
       },
       "product_features": {
         "type": "หูฟังอินเอียร์",
-        "port_input": ["AUX (3.5mm)"],
+        "port_input": [
+          "AUX (3.5mm)"
+        ],
         "bluetooth_version": "",
         "microphone": true
       }
@@ -70,15 +87,27 @@
     "product_options": [
       {
         "name": "Teal",
-        "image_name": ["17_Teal_01.jpg", "17_Teal_02.jpg", "17_Teal_03.jpg"]
+        "image_name": [
+          "17_Teal_01.jpg",
+          "17_Teal_02.jpg",
+          "17_Teal_03.jpg"
+        ]
       },
       {
         "name": "Red",
-        "image_name": ["17_Red_01.jpg", "17_Red_02.jpg", "17_Red_03.jpg"]
+        "image_name": [
+          "17_Red_01.jpg",
+          "17_Red_02.jpg",
+          "17_Red_03.jpg"
+        ]
       },
       {
         "name": "Blue",
-        "image_name": ["17_Blue_01.jpg", "17_Blue_02.jpg", "17_Blue_03.jpg"]
+        "image_name": [
+          "17_Blue_01.jpg",
+          "17_Blue_02.jpg",
+          "17_Blue_03.jpg"
+        ]
       },
       {
         "name": "Yellow",
@@ -107,12 +136,18 @@
           "ผ่านการปรับแต่งจูนเสียง Acoustic Tuning",
           "ถอดอัพเกรดสายได้ขั้วแบบ 2 Pins"
         ],
-        "connection": ["AUX/3.5 mm."],
-        "accessories": ["1 x KZ ZST X"]
+        "connection": [
+          "AUX/3.5 mm."
+        ],
+        "accessories": [
+          "1 x KZ ZST X"
+        ]
       },
       "product_features": {
         "type": "หูฟังอินเอียร์",
-        "port_input": ["AUX (3.5mm)"],
+        "port_input": [
+          "AUX (3.5mm)"
+        ],
         "bluetooth_version": "",
         "microphone": false
       }
@@ -123,11 +158,17 @@
     "product_options": [
       {
         "name": "Purple",
-        "image_name": ["18_Purple_01.jpg", "18_Purple_01.jpg"]
+        "image_name": [
+          "18_Purple_01.jpg",
+          "18_Purple_02.jpg"
+        ]
       },
       {
         "name": "Blue",
-        "image_name": ["18_Blue_01.jpg", "18_Blue_01.jpg"]
+        "image_name": [
+          "18_Blue_01.jpg",
+          "18_Blue_02.jpg"
+        ]
       }
     ]
   },
@@ -150,12 +191,18 @@
           "รองรับ 4 Frequency Divider",
           "ถอดเปลี่ยนสายได้ ขั้ว 2 Pin (0.75 มม.)"
         ],
-        "connection": ["AUX/3.5 mm."],
-        "accessories": ["1 x KZ ASX"]
+        "connection": [
+          "AUX/3.5 mm."
+        ],
+        "accessories": [
+          "1 x KZ ASX"
+        ]
       },
       "product_features": {
         "type": "หูฟังอินเอียร์",
-        "port_input": ["AUX (3.5mm)"],
+        "port_input": [
+          "AUX (3.5mm)"
+        ],
         "bluetooth_version": "",
         "microphone": true
       }
@@ -166,11 +213,17 @@
     "product_options": [
       {
         "name": "Black",
-        "image_name": ["19_Black_01.jpg"]
+        "image_name": [
+          "19_Black_01.jpg",
+          "19_Black_02.jpg"
+        ]
       },
       {
         "name": "Silver",
-        "image_name": ["19_Silver_01.jpg"]
+        "image_name": [
+          "19_Silver_01.jpg",
+          "19_Silver_02.jpg"
+        ]
       }
     ]
   },
@@ -186,7 +239,9 @@
           "มาพร้อมรีโมทและไมค์แบบ In-Line",
           "ขั้วสายแบบ MMCX ถอดเปลี่ยนได้ตามต้องการ"
         ],
-        "connection": ["AUX/3.5 mm."],
+        "connection": [
+          "AUX/3.5 mm."
+        ],
         "accessories": [
           "1 x Shure AONIC 5",
           "1 x อแดปเตอร์ 6.3 mm.",
@@ -201,7 +256,9 @@
       },
       "product_features": {
         "type": "หูฟังอินเอียร์",
-        "port_input": ["AUX (3.5mm)"],
+        "port_input": [
+          "AUX (3.5mm)"
+        ],
         "bluetooth_version": "",
         "microphone": true
       }
@@ -212,11 +269,17 @@
     "product_options": [
       {
         "name": "Black",
-        "image_name": ["20_Black_01.jpg", "20_Black_01.jpg"]
+        "image_name": [
+          "20_Black_01.jpg",
+          "20_Black_02.jpg"
+        ]
       },
       {
         "name": "White",
-        "image_name": ["20_White_01.jpg", "20_White_01.jpg"]
+        "image_name": [
+          "20_White_01.jpg",
+          "20_White_02.jpg"
+        ]
       }
     ]
   },
@@ -227,7 +290,9 @@
       "product_details": {
         "details": "ถ้าพูดถึงหูฟังจากแดนปลาดิบคงจะมียี่ห้อที่หลากหลาย วันนี้จะมาพูดถึงแบรนด์ที่เป็นแบรนด์ที่อยู่อันดับต้น ๆ เลยก็ว่าได้ กับแบรนด์ Audio -Technica ซึ่งหลาย ๆ คนคงรู้จักกันดี ซึ่งทาง Audio -Technica ได้ออกมาบอกว่าจะทำหูฟังซีรีย์ใหม่ ชื่อ LS Series พอเห็นหน้าตาจริง ๆ แล้วก็รู้สึกว่าทำออกมาหน้าทันสมัยกว่ารุ่นก่อน ๆ อย่าง Audio -Technica IM  และยังมาพร้อมกับราคาที่สามารถจับต้องได้ ถือว่าคุ้มค่าเลยทีเดียว",
         "key_highlight": [],
-        "connection": ["AUX/3.5 mm."],
+        "connection": [
+          "AUX/3.5 mm."
+        ],
         "accessories": [
           "1 x หูฟัง Audio -Technica LS50",
           "1 x จุกยางซิลิโคน 4 ขนาด",
@@ -236,7 +301,9 @@
       },
       "product_features": {
         "type": "หูฟังอินเอียร์",
-        "port_input": ["AUX (3.5mm)"],
+        "port_input": [
+          "AUX (3.5mm)"
+        ],
         "bluetooth_version": "",
         "microphone": false
       }
@@ -247,19 +314,31 @@
     "product_options": [
       {
         "name": "Black",
-        "image_name": ["21_Black_01.jpg"]
+        "image_name": [
+          "21_Black_01.jpg",
+          "21_Black_02.jpg"
+        ]
       },
       {
         "name": "Blue",
-        "image_name": ["21_Blue_01.jpg"]
+        "image_name": [
+          "21_Blue_01.jpg",
+          "21_Black_02.jpg"
+        ]
       },
       {
         "name": "Yellow",
-        "image_name": ["21_Yellow_01.jpg"]
+        "image_name": [
+          "21_Yellow_01.jpg",
+          "21_Yellow_02.jpg"
+        ]
       },
       {
         "name": "Red",
-        "image_name": ["21_Red_01.jpg"]
+        "image_name": [
+          "21_Red_01.jpg",
+          "21_Red_02.jpg"
+        ]
       }
     ]
   }

@@ -68,7 +68,7 @@ export const AuthProvider = ({ children }) => {
         earbuddata.filter((data) => data.price >= min && data.price <= max)
       );
     }
-    if (category === "Wireless Headphone") {
+    if (category === "WirelessHeadphone") {
       setFilterPrice(
         headphonedata.filter((data) => data.price >= min && data.price <= max)
       );
@@ -87,7 +87,7 @@ export const AuthProvider = ({ children }) => {
       if (category === "หูฟังเอียร์บัด") {
         setDataSort(earbuddata.sort((a, b) => sortby=="low" ? a.price - b.price: b.price - a.price));
       }
-      if (category === "Wireless Headphone") {
+      if (category === "WirelessHeadphone") {
         setDataSort(headphonedata.sort((a, b) => sortby=="low" ? a.price - b.price: b.price - a.price));
       }
       if (category === "Bluetooth-Speaker") {

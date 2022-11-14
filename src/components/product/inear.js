@@ -62,7 +62,6 @@ const Inear = () => {
                   <div
                     onMouseEnter={() => changeimage(index)}
                     onMouseLeave={() => setHoverimage(!hoverimage)}
-                    style={{ cursor: "pointer" }}
                   >
                     {hoverimage && imageid === index && productid === "" ? (
                       <Image
