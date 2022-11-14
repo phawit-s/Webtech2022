@@ -22,8 +22,8 @@ const Register = () => {
         .btn-submit {
           width : 100%;
           border-radius: 40px;
-          background: #00b495 !important;
-          border: 1px solid #00b495
+          background: #DAF7A6 !important;
+          border: 1px solid #FFC300
         }
         .form-group {
           position: relative;
@@ -37,6 +37,7 @@ const Register = () => {
           padding-left: 20px;
           padding-right: 20px;
           width: 100%;
+          color: white;
         }
         .form-control::-webkit-input-placeholder {
           color: #F3DED9;
@@ -78,7 +79,7 @@ const Register = () => {
 
 export default Register;
 const StyleBody = {
-  backgroundImage: "url('https://img.freepik.com/free-photo/beautiful-shot-golden-gate-bridge-with-amazing-clear-blue-sky_181624-1777.jpg?w=996&t=st=1667019026~exp=1667019626~hmac=c8bf712dd1056f4cbbb1894d6f53c84ef565eb7aa00576423081754fafd2b87e')",
+  backgroundImage: "url('https://i.pinimg.com/originals/1f/b2/2c/1fb22c2721dbab799e9f84368d1961bd.jpg')",
   backgroundPosition: 'center',
   backgroundSize: 'cover',
   backgroundRepeat: 'no-repeat',

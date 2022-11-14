@@ -30,18 +30,35 @@ const Home = () => {
   }, []);
 
   console.log(datasort); // use state from authcontext
-  // const slideImages = [
-  //   'https://cdn.thewirecutter.com/wp-content/media/2021/11/kidsheadphones-2048px-7353.jpg?auto=webp&quality=75&width=1024',
-  //   'https://res.cloudinary.com/stealthman22/image/upload/v1586308023/new-portfolio/hero/two-cargo-ships-sailing-near-city-2144905.jpg',
-  // ];
 
   return (
     <>
+      <style type="text/css">
+        {`
+          .row>*{
+            flex-shrink: 0;
+            width: 100%;
+            max-width: 100%;
+            margin-top: var(--bs-gutter-y);
+            padding-right:0;
+          }
+          .container-fluid{
+            --bs-gutter-x: 0;
+            --bs-gutter-y: 0;
+          }
+          body {
+            background-color: black;
+          }
+          .react-slideshow-container+ul.indicators .each-slideshow-indicator:before{
+            background: white;
+          }
+        `}
+      </style>
       <Container fluid>
 
-          <Navbarcomponent />
+        <Navbarcomponent />
 
-        {/* <Row>
+        <Row>
           <Slide
             autoplay={true}
             arrows={false}
@@ -52,8 +69,19 @@ const Home = () => {
               <div
                 style={{
                   backgroundImage:
+                    "url(https://media.graphassets.com/resize=w:1920,h:1080,fit:crop/quality=value:65/auto_image/compress/9A0OfCEbQha0HFkpFZKG)",
+                  height: "800px",
+                  width: "900",
+                  "background-size": "cover",
+                }}
+              ></div>
+            </div>
+            <div className="each-slide-effect">
+              <div
+                style={{
+                  backgroundImage:
                     "url(https://d2pz7ev4hh4qcl.cloudfront.net/assets/site_variable/image/3/Header-01.jpg)",
-                  height: "400px",
+                  height: "800px",
                   width: "900",
                   "background-size": "cover",
                 }}
@@ -63,26 +91,15 @@ const Home = () => {
               <div
                 style={{
                   backgroundImage:
-                    "url(https://t4.ftcdn.net/jpg/05/10/52/45/240_F_510524517_U87aQQk7jzLvBdlpbgyZSIR4XmET0kk3.jpg)",
-                  height: "400px",
-                  width: "900",
-                  "background-size": "cover",
-                }}
-              ></div>
-            </div>
-            <div className="each-slide-effect">
-              <div
-                style={{
-                  backgroundImage:
-                    "url(https://t3.ftcdn.net/jpg/02/82/19/00/240_F_282190082_3wT9j8kLuhGpda70PNGK6CabxYVtBd25.jpg)",
-                  height: "400px",
+                    "url(https://d3emaq2p21aram.cloudfront.net/media/cache/report_image_flex/uploads/StudioNeon-SydneyAustralia-LaraHotz/StudioNeon-Australia_191.jpg)",
+                  height: "800px",
                   width: "900",
                   "background-size": "cover",
                 }}
               ></div>
             </div>
           </Slide>
-        </Row> */}
+        </Row>
       </Container>
     </>
   );
