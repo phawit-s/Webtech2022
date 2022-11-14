@@ -15,6 +15,8 @@ import {
 } from "react-bootstrap";
 import Navbarcomponent from "../navbar";
 import { useAuth } from "../../contexts/AuthContext";
+import { useToasts } from "react-toast-notifications";
+import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai";
 
 const Headphone = () => {
   const [data, setData] = useState([...headphonedata]);
@@ -23,6 +25,7 @@ const Headphone = () => {
   const [imageid, setImageid] = useState("");
   const [productid, setProductid] = useState("");
   const [colorid, setColorid] = useState("0");
+  const { addToast } = useToasts();
   const {
     favproduct,
     filterbrands,
@@ -38,6 +41,20 @@ const Headphone = () => {
   useEffect(() => {
     sortbyprice("low", "WirelessHeadphone");
   }, []);
+  const addfavourite = (index) => {
+    favouriteProduct(data[index]);
+    addToast("Add to wishlist!", {
+      appearance: "success",
+      autoDismiss: true,
+    });
+  };
+  const pickcart = (index) =>{
+    addtocart(data[index]);
+    addToast("Add to cart!", {
+      appearance: "success",
+      autoDismiss: true,
+    });
+  }
   const toggleroom = () => {
     setToggleRoom(!toggleRoom);
   };
@@ -49,14 +66,12 @@ const Headphone = () => {
     setProductid(index);
     setColorid(index2);
   };
-  const sortprice = ()=>{
-    sortbyprice("low", "WirelessHeadphone")
-    if(datasort){
-      setData(datasort)
+  const sortprice = () => {
+    sortbyprice("high", "WirelessHeadphone");
+    if (datasort) {
+      setData(datasort);
     }
-  
-
-  }
+  };
   const subMenuAnimate = {
     enter: {
       opacity: 1,
@@ -120,11 +135,11 @@ const Headphone = () => {
                       marginTop: "10px",
                       borderRadius: "5px",
                       position: "absolute",
-                      zIndex:"1"
+                      zIndex: "1",
                     }}
                   >
                     <Row>
-                      <text color="black" >Brands</text>
+                      <text color="black">Brands</text>
                     </Row>
                     <Row>
                       <text color="black">Price</text>
@@ -141,7 +156,9 @@ const Headphone = () => {
 
           <Col style={{ textAlign: "right" }}>
             <text>Sort by:</text>
-            <text onClick={sortprice} style={{cursor:"pointer"}}>Price</text>
+            <text onClick={sortprice} style={{ cursor: "pointer" }}>
+              Price
+            </text>
           </Col>
         </Row>
         <Row>
@@ -150,7 +167,7 @@ const Headphone = () => {
               <Col xs={2} md={3} xl={4} className="mb-5" key={index}>
                 <Card style={{ border: "none" }}>
                   <div
-                    style={{ border: "1px solid black" }}
+                    style={{ border: "none" }}
                     onMouseEnter={() => changeimage(index)}
                     onMouseLeave={() => setHoverimage(!hoverimage)}
                   >
@@ -159,6 +176,9 @@ const Headphone = () => {
                         src={`/image/${productdata.product_options[0].image_name[1]}`}
                         width={"350px"}
                         height={"350px"}
+                        style={{
+                          position: "relative",
+                        }}
                       />
                     ) : hoverimage &&
                       imageid === index &&
@@ -167,20 +187,41 @@ const Headphone = () => {
                         src={`/image/${productdata.product_options[colorid].image_name[1]}`}
                         width={"350px"}
                         height={"350px"}
+                        style={{
+                          position: "relative",
+                        }}
                       />
                     ) : productid === index ? (
                       <Image
                         src={`/image/${productdata.product_options[colorid].image_name[0]}`}
                         width={"350px"}
                         height={"350px"}
+                        style={{
+                          position: "relative",
+                        }}
                       />
                     ) : (
                       <Image
                         src={`/image/${productdata.product_options[0].image_name[0]}`}
                         width={"350px"}
                         height={"350px"}
+                        style={{
+                          position: "relative",
+                        }}
                       />
                     )}
+                    <AiOutlineHeart
+                      onClick={() => addfavourite(index)}
+                      style={{
+                        color: "red",
+                        position: "relative",
+                        left: "10px",
+                        bottom: "140px",
+                        width: "40px",
+                        height: "40px",
+                        cursor: "pointer"
+                      }}
+                    />
                   </div>
 
                   <Card.Body>
@@ -201,7 +242,7 @@ const Headphone = () => {
                   <h5 style={{ marginLeft: "30px", marginBottom: "20px" }}>
                     {productdata.name}
                   </h5>
-                  <h6 style={{ marginLeft: "30px", fontSize: "20px" }}>
+                  <h6 onClick={() => pickcart(index)} style={{ marginLeft: "30px", fontSize: "20px", cursor:"pointer" }}>
                     {productdata.price.toLocaleString("th-TH", {
                       style: "currency",
                       currency: "THB",

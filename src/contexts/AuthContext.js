@@ -18,27 +18,48 @@ const AuthContext = createContext({
 
 export const useAuth = () => useContext(AuthContext);
 export const AuthProvider = ({ children }) => {
-  const [favproduct, setFavproduct] = useState(null);
+  const [favproduct, setFavproduct] = useState("");
   const [filterbrands, setFilterBrands] = useState(null);
   const [filterprice, setFilterPrice] = useState(null);
   const [datasort, setDataSort] = useState(null);
-  const [productcart, setProductCart] = useState(null);
+  const [productcart, setProductCart] = useState("");
 
-  async function favouriteProduct(name, image_name, price) {
+  useEffect(() => {
     const getfavproductStorage = window.localStorage.getItem("favoriteproduct");
-    
-    let productdata = {
-      name: "หูฟัง Sony WH-1000XM5 Wireless Over Ear Headphone",
-      image: ["01_black_01.jpg", "01_black_02.jpg"],
-      price: 14490,
-    };
-      let itemsList = getfavproductStorage ? JSON.parse(getfavproductStorage): []
-      setFavproduct(itemsList)
-      itemsList.push(productdata);
-      window.localStorage.setItem("favoriteproduct", JSON.stringify(itemsList));
+    const getcartproductStorage = window.localStorage.getItem("productcart");
+    const itemsList = getfavproductStorage
+      ? JSON.parse(getfavproductStorage)
+      : [];
+    const cartlist = getcartproductStorage
+      ? JSON.parse(getcartproductStorage)
+      : [];
+    setFavproduct(itemsList);
+    setProductCart(cartlist);
+
+  }, []);
+
+  async function favouriteProduct(data) {
+    const getfavproductStorage = window.localStorage.getItem("favoriteproduct");
+    const productdata = data;
+    const itemsList = getfavproductStorage
+      ? JSON.parse(getfavproductStorage)
+      : [];
+
+    setFavproduct(itemsList);
+    itemsList.push(productdata);
+    window.localStorage.setItem("favoriteproduct", JSON.stringify(itemsList));
   }
 
-  
+  async function addtocart(data) {
+    const getcartproductStorage = window.localStorage.getItem("productcart");
+    const productdata = data;
+    const cartlist = getcartproductStorage
+      ? JSON.parse(getcartproductStorage)
+      : [];
+    setProductCart(cartlist);
+    cartlist.push(productdata);
+    window.localStorage.setItem("productcart", JSON.stringify(cartlist));
+  }
 
   async function filterbybrand(brand, category) {
     if (category === "In Ear") {
@@ -81,32 +102,34 @@ export const AuthProvider = ({ children }) => {
   }
 
   async function sortbyprice(sortby, category) {
-      if (category === "In Ear") {
-        setDataSort(ineardata.sort((a, b) => sortby=="low" ? a.price - b.price: b.price - a.price));
-      }
-      if (category === "หูฟังเอียร์บัด") {
-        setDataSort(earbuddata.sort((a, b) => sortby=="low" ? a.price - b.price: b.price - a.price));
-      }
-      if (category === "WirelessHeadphone") {
-        setDataSort(headphonedata.sort((a, b) => sortby=="low" ? a.price - b.price: b.price - a.price));
-      }
-      if (category === "Bluetooth-Speaker") {
-        setDataSort(speakerdata.sort((a, b) => sortby=="low" ? a.price - b.price: b.price - a.price));
-      }
-
-  }
-
-  async function addtocart(name, image_name, price) {
-    const getcartproductStorage = window.localStorage.getItem("productcart");
-    let productdata = {
-      name: "หูฟัง Sony WH-1000XM5 Wireless Over Ear Headphone",
-      image: ["01_black_01.jpg", "01_black_02.jpg"],
-      price: 14490,
-    };
-      let itemsList = getcartproductStorage ? JSON.parse(getcartproductStorage): []
-      setProductCart(itemsList)
-      itemsList.push(productdata);
-      window.localStorage.setItem("productcart", JSON.stringify(itemsList));
+    if (category === "In Ear") {
+      setDataSort(
+        ineardata.sort((a, b) =>
+          sortby == "low" ? a.price - b.price : b.price - a.price
+        )
+      );
+    }
+    if (category === "หูฟังเอียร์บัด") {
+      setDataSort(
+        earbuddata.sort((a, b) =>
+          sortby == "low" ? a.price - b.price : b.price - a.price
+        )
+      );
+    }
+    if (category === "WirelessHeadphone") {
+      setDataSort(
+        headphonedata.sort((a, b) =>
+          sortby == "low" ? a.price - b.price : b.price - a.price
+        )
+      );
+    }
+    if (category === "Bluetooth-Speaker") {
+      setDataSort(
+        speakerdata.sort((a, b) =>
+          sortby == "low" ? a.price - b.price : b.price - a.price
+        )
+      );
+    }
   }
 
   const value = {

@@ -13,21 +13,53 @@ import {
   Carousel,
 } from "react-bootstrap";
 import Navbarcomponent from "../navbar";
+import { useAuth } from "../../contexts/AuthContext";
+import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai";
 
 const Speaker = () => {
   const [data, setData] = useState([...speakerdata]);
   const [hoverimage, setHoverimage] = useState(false);
+  const [toggleRoom, setToggleRoom] = useState(false);
   const [imageid, setImageid] = useState("");
   const [productid, setProductid] = useState("");
   const [colorid, setColorid] = useState("0");
-  console.log(data);
-  const changeimage = (index) => {
+
+  const {
+    favproduct,
+    filterbrands,
+    filterprice,
+    datasort,
+    productcart,
+    favouriteProduct,
+    filterbybrand,
+    filterbyprice,
+    sortbyprice,
+    addtocart,
+  } = useAuth();
+  useEffect(() => {
+    sortbyprice("low", "Bluetooth-Speaker");
+    // favouriteProduct(data[0]);
+  }, []);
+  const addfavourite = (index) => {
+    favouriteProduct(data[index]);
+    console.log(favproduct);
+  };
+  const toggleroom = () => {
+    setToggleRoom(!toggleRoom);
+  };
+  const changeimage = async (index) => {
     setHoverimage(!hoverimage);
     setImageid(index);
   };
   const changecolor = (index, index2) => {
     setProductid(index);
     setColorid(index2);
+  };
+  const sortprice = () => {
+    sortbyprice("high", "Bluetooth-Speaker");
+    if (datasort) {
+      setData(datasort);
+    }
   };
   return (
     <>
@@ -59,7 +91,8 @@ const Speaker = () => {
             return (
               <Col xs={2} md={3} xl={4} className="mb-5" key={index}>
                 <Card style={{ border: "none" }}>
-                  <div
+                <div
+                    style={{ border: "1px solid black" }}
                     onMouseEnter={() => changeimage(index)}
                     onMouseLeave={() => setHoverimage(!hoverimage)}
                   >
@@ -68,6 +101,9 @@ const Speaker = () => {
                         src={`/image/${productdata.product_options[0].image_name[1]}`}
                         width={"350px"}
                         height={"350px"}
+                        style={{
+                          position: "relative",
+                        }}
                       />
                     ) : hoverimage &&
                       imageid === index &&
@@ -76,20 +112,40 @@ const Speaker = () => {
                         src={`/image/${productdata.product_options[colorid].image_name[1]}`}
                         width={"350px"}
                         height={"350px"}
+                        style={{
+                          position: "relative",
+                        }}
                       />
                     ) : productid === index ? (
                       <Image
                         src={`/image/${productdata.product_options[colorid].image_name[0]}`}
                         width={"350px"}
                         height={"350px"}
+                        style={{
+                          position: "relative",
+                        }}
                       />
                     ) : (
                       <Image
                         src={`/image/${productdata.product_options[0].image_name[0]}`}
                         width={"350px"}
                         height={"350px"}
+                        style={{
+                          position: "relative",
+                        }}
                       />
                     )}
+                    <AiOutlineHeart
+                      onClick={() => addfavourite(index)}
+                      style={{
+                        color: "red",
+                        position: "relative",
+                        left: "10px",
+                        bottom: "140px",
+                        width: "40px",
+                        height: "40px",
+                      }}
+                    />
                   </div>
 
                   <Card.Body>

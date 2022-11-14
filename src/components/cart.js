@@ -7,13 +7,18 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Form, Button, Card, Image, Breadcrumb, Carousel } from "react-bootstrap";
 import rawItem from '../assets/Speaker.json';
+import { useAuth } from "../contexts/AuthContext";
 import Navbarcomponent from "./navbar";
 
 const Cart = () => {
-
-    const [items, setItems] = useState([...rawItem])
+    const { productcart } = useAuth();
+    const [items, setItems] = useState([...productcart])
     const [itemsInCart, setItemsInCart] = useState([...items.map((_) => 1)])
-    // const [cartItems, setCartItems] = useState(0)
+
+    console.log(items);
+    useEffect(() => {
+        setItems([...productcart]);
+      }, [productcart]);
 
     const increaseItemToCart = useCallback((index) => {
         const updatedCarts = [...itemsInCart]
@@ -75,7 +80,7 @@ const Cart = () => {
                     {
                         items.map((item, i) => {
                             return <>
-                                <Col md={6} className="py-3" key={item.id}>
+                                <Col md={6} className="py-3"  key={item.id}>
                                     <Row>
                                         <Col md={4}>
                                             <Carousel>

@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
-import { Row } from "react-bootstrap";
+import { useHistory, Redirect } from "react-router-dom";
+import { Row, Col } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai";
 import NavDropdown from "react-bootstrap/NavDropdown";
 
 const Navbarcomponent = () => {
+  const history = useHistory();
   const [onOpen, setOnOpen] = useState(false);
   const Dropdownnmenu = () => {
     return (
       <Navbar
         onMouseLeave={() => setOnOpen(!onOpen)}
         style={{
+          zIndex:'1',
           height: "60px",
           backgroundColor: "#FFF",
           position: "absolute",
@@ -52,7 +56,7 @@ const Navbarcomponent = () => {
             <Nav
               className="mx-4 mt-1"
               style={{ cursor: "pointer" }}
-              onMouseEnter={() => setOnOpen(!onOpen)}
+              onClick={() => setOnOpen(!onOpen)}
             >
               Headphone
             </Nav>
@@ -62,9 +66,61 @@ const Navbarcomponent = () => {
 
             <Navbar.Toggle />
             <Navbar.Collapse className="justify-content-end">
-              <Navbar.Text>
-                Signed in as: <a href="#login">Mark Otto</a>
-              </Navbar.Text>
+              <div>
+                <AiOutlineHeart
+                  style={{
+                    width: "25px",
+                    height: "25px",
+                    cursor: "pointer",
+                    position: "relative",
+                  }}
+                  onClick={() =>
+                    history.push({
+                      pathname: `/wishlist`,
+                    })
+                  }
+                />
+                <span
+                  style={{
+                    color: "green",
+                    position: "relative",
+                    right: "8px",
+                    bottom: "8px",
+                    width: "10px",
+                    height: "10px",
+                  }}
+                >
+                  ●
+                </span>
+              </div>
+              <div>
+                <AiOutlineShoppingCart
+                  style={{
+                    width: "25px",
+                    height: "25px",
+                    cursor: "pointer",
+                    position: "relative",
+                  }}
+                  className="mx-3"
+                  onClick={() =>
+                    history.push({
+                      pathname: `/cart`,
+                    })
+                  }
+                />
+                <span
+                  style={{
+                    color: "green",
+                    position: "relative",
+                    right: "22px",
+                    bottom: "8px",
+                    width: "10px",
+                    height: "10px",
+                  }}
+                >
+                  ●
+                </span>
+              </div>
             </Navbar.Collapse>
           </Container>
         </Navbar>
