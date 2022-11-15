@@ -5,7 +5,7 @@ import { Row, Col } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai";
-import NavDropdown from "react-bootstrap/NavDropdown";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 const Navbarcomponent = () => {
   const history = useHistory();
@@ -15,7 +15,7 @@ const Navbarcomponent = () => {
       <Navbar
         onMouseLeave={() => setOnOpen(!onOpen)}
         style={{
-          zIndex:'1',
+          zIndex: "1",
           height: "60px",
           backgroundColor: "#FFF",
           position: "absolute",
@@ -59,7 +59,9 @@ const Navbarcomponent = () => {
               onClick={() => setOnOpen(!onOpen)}
             >
               Headphone
+              {onOpen ? <IoIosArrowUp style={{marginTop: "6px", marginLeft: "4px"}}/> : <IoIosArrowDown style={{marginTop: "6px", marginLeft: "4px"}}/>}
             </Nav>
+            
             <Nav.Link href="/speaker" className="ml-4 mt-1">
               Speaker
             </Nav.Link>

@@ -57,6 +57,15 @@ const Wishlist = () => {
     return price;
   }, [selected]);
 
+  useEffect(()=>{
+    const set = new Set(items.map(item => JSON.stringify(item)));
+    const dedup = [...set].map(item => JSON.parse(item));
+    setItems([...dedup]);
+  },[])
+  console.log(items);
+  
+
+
   return (
     <>
       <Navbarcomponent />
@@ -122,7 +131,7 @@ const Wishlist = () => {
         </div>
         <hr className="pt-2"></hr>
         <Row className="px-4">
-          {items.map((item,index) => {
+          {items.map((item, index) => {
             return (
               <Col sm={6} md={4} key={index}>
                 <Card className="border-0">

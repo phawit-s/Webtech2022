@@ -1,35 +1,67 @@
-import React, { useEffect } from "react";
-import { useHistory, Redirect } from "react-router-dom";
-import Container from "react-bootstrap/Container";
+import React, { useEffect, useState, useCallback, useMemo } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
-import Stack from "react-bootstrap/Stack";
-import Navbarcomponent from "./navbar";
+import suggestiondata from "../assets/Suggestion.json";
+import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai";
 import { useAuth } from "../contexts/AuthContext";
+import { useToasts } from "react-toast-notifications";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 
+import {
+  Container,
+  Button,
+  Card,
+  Image,
+  Breadcrumb,
+  Carousel,
+} from "react-bootstrap";
+import Navbarcomponent from "./navbar";
+import Footer from "./footer";
+import { useHistory } from "react-router-dom";
+
 const Home = () => {
+  const { productdetail, favouriteProduct, gotodetail } = useAuth();
+  const [data, setData] = useState([...productdetail]);
+  const [sugdata, setSugdata] = useState([...suggestiondata]);
+  const [hoverimage, setHoverimage] = useState(false);
+  const [selectedoption, setSelectedoption] = useState("0");
+  const [imageid, setImageid] = useState("");
+  const [productid, setProductid] = useState("");
+  const [colorid, setColorid] = useState("");
+  const { addToast } = useToasts();
   const history = useHistory();
-  const {
-    favproduct,
-    filterbrands,
-    filterprice,
-    datasort,
-    productcart,
-    favouriteProduct,
-    filterbybrand,
-    filterbyprice,
-    sortbyprice,
-    addtocart,
-  } = useAuth(); // use state,function from authcontext
 
   useEffect(() => {
-    sortbyprice("low", "In Ear"); // use function from authcontext
-  }, []);
+    setData([...productdetail]);
+  }, [productdetail]);
 
-  console.log(datasort); // use state from authcontext
+  const changepage = (index) => {
+    gotodetail(sugdata[index]);
+    history.push({
+      pathname: "/description",
+    });
+  };
+
+  const changeimage = async (index) => {
+    setHoverimage(!hoverimage);
+    setImageid(index);
+  };
+  const changecolor = (index, index2) => {
+    setProductid(index);
+    setColorid(index2);
+  };
+  const addfavourite = (index) => {
+    favouriteProduct(data[index]);
+    addToast("Add to wishlist!", {
+      appearance: "success",
+      autoDismiss: true,
+    });
+  };
+  const changeoption = (index) => {
+    setSelectedoption(index);
+    console.log("test", index);
+  };
 
   return (
     <>
@@ -47,7 +79,7 @@ const Home = () => {
             --bs-gutter-y: 0;
           }
           body {
-            background-color: black;
+            background-color: #fff;
           }
           .react-slideshow-container+ul.indicators .each-slideshow-indicator:before{
             background: white;
@@ -55,7 +87,6 @@ const Home = () => {
         `}
       </style>
       <Container fluid>
-
         <Navbarcomponent />
 
         <Row>
@@ -72,7 +103,7 @@ const Home = () => {
                     "url(https://media.graphassets.com/resize=w:1920,h:1080,fit:crop/quality=value:65/auto_image/compress/9A0OfCEbQha0HFkpFZKG)",
                   height: "800px",
                   width: "900",
-                  "background-size": "cover",
+                  backgroundSize: "cover",
                 }}
               ></div>
             </div>
@@ -83,7 +114,7 @@ const Home = () => {
                     "url(https://d2pz7ev4hh4qcl.cloudfront.net/assets/site_variable/image/3/Header-01.jpg)",
                   height: "800px",
                   width: "900",
-                  "background-size": "cover",
+                  backgroundSize: "cover",
                 }}
               ></div>
             </div>
@@ -94,13 +125,141 @@ const Home = () => {
                     "url(https://d3emaq2p21aram.cloudfront.net/media/cache/report_image_flex/uploads/StudioNeon-SydneyAustralia-LaraHotz/StudioNeon-Australia_191.jpg)",
                   height: "800px",
                   width: "900",
-                  "background-size": "cover",
+                  backgroundSize: "cover",
                 }}
               ></div>
             </div>
           </Slide>
         </Row>
       </Container>
+      <Container>
+        <Row>
+          <div style={{ float: "left", marginLeft: "5%" }}>
+            <div>
+              <div id="main">
+                <h1 style={{ margin: 0, color: "darkblue", fontSize: "50px" }}>
+                  Bestsellers
+                </h1>
+                <button
+                  type="button"
+                  style={{ marginLeft: "20px", fontSize: "20px" }}
+                >
+                  Shop all sunglasses
+                </button>
+              </div>
+              <Row>
+                {sugdata.map((productdata, index) => {
+                  return (
+                    <Col  className="mb-5" key={index}>
+                      <Card style={{ border: "none" }}>
+                        <div
+                          style={{ border: "none", cursor: "pointer" }}
+                          onMouseEnter={() => changeimage(index)}
+                          onMouseLeave={() => setHoverimage(!hoverimage)}
+                        >
+                          {hoverimage &&
+                          imageid === index &&
+                          productid === "" ? (
+                            <Image
+                              src={`/image/${productdata.product_options[0].image_name[1]}`}
+                              width={"350px"}
+                              height={"350px"}
+                              onClick={() => changepage(index)}
+                              style={{
+                                position: "relative",
+                              }}
+                            />
+                          ) : hoverimage &&
+                            imageid === index &&
+                            productid === index ? (
+                            <Image
+                              src={`/image/${productdata.product_options[colorid].image_name[1]}`}
+                              width={"350px"}
+                              height={"350px"}
+                              onClick={() => changepage(index)}
+                              style={{
+                                position: "relative",
+                              }}
+                            />
+                          ) : productid === index ? (
+                            <Image
+                              src={`/image/${productdata.product_options[colorid].image_name[0]}`}
+                              width={"350px"}
+                              height={"350px"}
+                              onClick={() => changepage(index)}
+                              style={{
+                                position: "relative",
+                              }}
+                            />
+                          ) : (
+                            <Image
+                              src={`/image/${productdata.product_options[0].image_name[0]}`}
+                              width={"350px"}
+                              height={"350px"}
+                              onClick={() => changepage(index)}
+                              style={{
+                                position: "relative",
+                              }}
+                            />
+                          )}
+                          <AiOutlineHeart
+                            onClick={() => addfavourite(index)}
+                            style={{
+                              color: "red",
+                              position: "relative",
+                              left: "10px",
+                              bottom: "140px",
+                              width: "40px",
+                              height: "40px",
+                              cursor: "pointer",
+                            }}
+                          />
+                        </div>
+
+                        <Card.Body>
+                          {productdata.product_options.map(
+                            (productimage, index2) => {
+                              return (
+                                <Image
+                                  src={`/image/${productimage.image_name[0]}`}
+                                  width="70"
+                                  height="70"
+                                  key={index2}
+                                  style={{ cursor: "pointer" }}
+                                  onClick={() => changecolor(index, index2)}
+                                />
+                              );
+                            }
+                          )}
+                        </Card.Body>
+
+                        <h5
+                          style={{ marginLeft: "30px", marginBottom: "20px" }}
+                        >
+                          {productdata.name}
+                        </h5>
+                        <h6
+                          style={{
+                            marginLeft: "30px",
+                            fontSize: "20px",
+                            cursor: "pointer",
+                          }}
+                        >
+                          {productdata.price.toLocaleString("th-TH", {
+                            style: "currency",
+                            currency: "THB",
+                          })}{" "}
+                        </h6>
+                      </Card>
+                    </Col>
+                  );
+                })}
+              </Row>
+            </div>
+          </div>
+        </Row>
+      </Container>
+      <Footer />
     </>
   );
 };
