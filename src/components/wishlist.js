@@ -59,10 +59,10 @@ const Wishlist = () => {
 
   useEffect(()=>{
     const set = new Set(items.map(item => JSON.stringify(item)));
-    const dedup = [...set].map(item => JSON.parse(item));
-    setItems([...dedup]);
+    const reduceitems = [...set].map(item => JSON.parse(item));
+    setItems([...reduceitems]);
   },[])
-  console.log(items);
+
   
 
 
