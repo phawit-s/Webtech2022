@@ -14,15 +14,19 @@ import {
 import rawItem from "../assets/Inear.json";
 import { useAuth } from "../contexts/AuthContext";
 import { useToasts } from "react-toast-notifications";
+import Countries from "../assets/countries.json"
+import Provinces from "../assets/thai-provinces.json"
 
 const Checkout = () => {
   const { checkoutcart } = useAuth();
   const history = useHistory();
-  
+
   const [items, setItems] = useState([...checkoutcart]);
   const [btnColor, setBtnColor] = useState(false);
   const [textGift, setTextGift] = useState("");
   const { addToast } = useToasts();
+
+  const [selectedCountry, setSelectedCountry] = useState(Countries[0])
 
 
   useEffect(() => {
@@ -38,9 +42,9 @@ const Checkout = () => {
     window.localStorage.removeItem("productcart");
     window.localStorage.removeItem("checkoutcart");
     addToast("Thank You", {
-        appearance: "success",
-        autoDismiss: true,
-      });
+      appearance: "success",
+      autoDismiss: true,
+    });
     history.push({
       pathname: `/`,
     });
@@ -92,8 +96,12 @@ const Checkout = () => {
                 <Form.Label className="pb-2 text-small">
                   Shipping Address
                 </Form.Label>
-                <Form.Select className="checkout">
-                  <option>select</option>
+                <Form.Select className="checkout" onChange={(e) => {
+                  setSelectedCountry(e.target.value)
+                }}>
+                  {Countries.map(country => (
+                    <option key={country}>{country}</option>
+                  ))}
                 </Form.Select>
               </Form.Group>
 
@@ -139,11 +147,15 @@ const Checkout = () => {
                       placeholder="City"
                     />
                   </Col>
-                  <Col>
-                    <Form.Select className="checkout">
-                      <option>select</option>
-                    </Form.Select>
-                  </Col>
+                  {selectedCountry === "Thailand" && (
+                    <Col>
+                      <Form.Select className="checkout">
+                        {Provinces.map(province => (
+                          <option key={province}>{province}</option>
+                        ))}
+                      </Form.Select>
+                    </Col>
+                  )}
                   <Col>
                     <Form.Control
                       type="text"
