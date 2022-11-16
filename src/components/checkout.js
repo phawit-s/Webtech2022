@@ -259,10 +259,8 @@ const Checkout = () => {
               <Col sm={6} md={2} className="pl-0">
                 <Button
                   type="submit"
-                  className="colorBtnApply"
-                  style={{
-                    backgroundColor: btnColor === true ? "#1878b9" : "black",
-                  }}
+                  className="colorBtnApply colorBtnCheckout"
+                  disabled={textGift.length <= 0}
                 >
                   Apply
                 </Button>
