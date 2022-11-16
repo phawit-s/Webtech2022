@@ -24,6 +24,10 @@ const Signin = () => {
         history.push({
           pathname: `/`,
         });
+        addToast("Welcome!!", {
+          appearance: "success",
+          autoDismiss: true,
+        });
       } else {
         addToast("Email or Password doesn't match", {
           appearance: "error",
