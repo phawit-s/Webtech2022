@@ -16,7 +16,7 @@ import { useAuth } from "../contexts/AuthContext";
 import Navbarcomponent from "./navbar";
 
 const Cart = () => {
-  const { productcart, checkout } = useAuth();
+  const { productcart, checkout, gotodetail } = useAuth();
   const history = useHistory();
   const [items, setItems] = useState([...rawItem]);
   const [itemsInCart, setItemsInCart] = useState([...items.map((_) => 1)]);
@@ -30,7 +30,7 @@ const Cart = () => {
 
   const checktopay = () => {
     checkout(result);
-    window.localStorage.setItem("checkoutprice", subTotalPrice)
+    window.localStorage.setItem("checkoutprice", subTotalPrice);
     history.push({
       pathname: `/checkout`,
     });
@@ -72,6 +72,12 @@ const Cart = () => {
     return sum;
   }, [itemsInCart, items]);
 
+  const changepage = (index) => {
+    gotodetail(result[index]);
+    history.push({
+      pathname: "/description",
+    });
+  };
   return (
     <>
       <Navbarcomponent />
@@ -124,6 +130,8 @@ const Cart = () => {
                               >
                                 <img
                                   className="d-block w-50 mx-auto d-block"
+                                  style={{ cursor: "pointer" }}
+                                  onClick={() => changepage(i)}
                                   src={`/image/${e}`}
                                   alt="First slide"
                                 />
@@ -133,7 +141,11 @@ const Cart = () => {
                         })}
                       </Carousel>
                     </Col>
-                    <Col md={8}>
+                    <Col
+                      md={8}
+                      style={{ cursor: "pointer" }}
+                      onClick={() => changepage(i)}
+                    >
                       <h5 className="text-small">{item.name}</h5>
                       <h6 className="text-small">
                         {item.price.toLocaleString("th-TH", {

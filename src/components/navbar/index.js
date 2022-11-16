@@ -4,12 +4,29 @@ import { useHistory, Redirect } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { useAuth } from "../../contexts/AuthContext";
+import { useToasts } from "react-toast-notifications";
 import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 const Navbarcomponent = () => {
   const history = useHistory();
   const [onOpen, setOnOpen] = useState(false);
+  const [toggleProfile, setToggleProfile] = useState(false);
+  const [colorid, setColorid] = useState(false);
+  const { currentUser } = useAuth();
+  const { addToast } = useToasts();
+
+  const logout = () =>{
+    history.push({
+      pathname: `/signin`,
+    })
+    addToast("Logout", {
+      appearance: "success",
+      autoDismiss: true,
+    });
+  }
+
   const Dropdownnmenu = () => {
     return (
       <Navbar
@@ -59,10 +76,16 @@ const Navbarcomponent = () => {
               onClick={() => setOnOpen(!onOpen)}
             >
               Headphone
-              {onOpen ? <IoIosArrowUp style={{marginTop: "6px", marginLeft: "4px"}}/> : <IoIosArrowDown style={{marginTop: "6px", marginLeft: "4px"}}/>}
+              {onOpen ? (
+                <IoIosArrowUp style={{ marginTop: "6px", marginLeft: "4px" }} />
+              ) : (
+                <IoIosArrowDown
+                  style={{ marginTop: "6px", marginLeft: "4px" }}
+                />
+              )}
             </Nav>
-            
-            <Nav.Link href="/speaker" className="ml-4 mt-1">
+
+            <Nav.Link href="/speaker" className="ml-5 mt-1">
               Speaker
             </Nav.Link>
             <Nav.Link href="/all" className="mx-4 mt-1">
@@ -125,6 +148,47 @@ const Navbarcomponent = () => {
                 >
                   ●
                 </span>
+              </div>
+              <div>
+                <Nav
+                  className="mx-4 "
+                  style={{ cursor: "pointer" }}
+                  onClick={() => setToggleProfile(!toggleProfile)}
+                >
+                  {currentUser.username}
+                  {toggleProfile ? (
+                    <IoIosArrowUp
+                      style={{ marginTop: "6px", marginLeft: "4px" }}
+                    />
+                  ) : (
+                    <IoIosArrowDown
+                      style={{ marginTop: "6px", marginLeft: "4px" }}
+                    />
+                  )}
+                </Nav>
+                {toggleProfile ? (
+                  <div
+                    onMouseEnter={() => setColorid(!colorid)}
+                    onMouseLeave={() => setColorid(!colorid)}
+                    onClick={() => logout()}
+                    style={{
+                      backgroundColor: "#fff",
+                      border: "1px solid gray",
+                      padding: "10px",
+                      marginLeft: "20px",
+                      marginTop: "10px",
+                      borderRadius: "5px",
+                      position: "absolute",
+                      zIndex: "1",
+                      cursor: "pointer",
+                      color: colorid ? "red" : "black",
+                    }}
+                  >
+                    <h6>Logout</h6>
+                  </div>
+                ) : (
+                  ""
+                )}
               </div>
             </Navbar.Collapse>
           </Container>

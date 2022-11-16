@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useCallback, useMemo } from "react";
+import { Redirect } from "react-router-dom";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import suggestiondata from "../assets/Suggestion.json";
@@ -21,7 +22,8 @@ import Footer from "./footer";
 import { useHistory } from "react-router-dom";
 
 const Home = () => {
-  const { productdetail, favouriteProduct, gotodetail } = useAuth();
+  const { currentUser, productdetail, favouriteProduct, gotodetail } =
+    useAuth();
   const [data, setData] = useState([...productdetail]);
   const [sugdata, setSugdata] = useState([...suggestiondata]);
   const [buttonhover, setbuttonhover] = useState(false);
@@ -44,6 +46,10 @@ const Home = () => {
     });
   };
 
+  if(!currentUser){
+    return <Redirect to="/signin" />;
+  }
+  
   const changeimage = async (index) => {
     setHoverimage(!hoverimage);
     setImageid(index);
@@ -58,10 +64,6 @@ const Home = () => {
       appearance: "success",
       autoDismiss: true,
     });
-  };
-  const changeoption = (index) => {
-    setSelectedoption(index);
-    console.log("test", index);
   };
 
   return (
@@ -142,32 +144,34 @@ const Home = () => {
                   Bestsellers
                 </h1>
                 <button
-                onMouseEnter={() => setbuttonhover(!buttonhover)}
-                onMouseLeave={() => setbuttonhover(!buttonhover)}
-                onClick={()=>history.push({
-                  pathname: `/all`,
-                })}
-                type="button"
-                style={{
-                  marginLeft: "20px",
-                  marginTop: "10px",
-                  padding: "10px",
-                  fontSize: "18px",
-                  backgroundColor: "#fff",
-                  border: buttonhover
-                    ? "1px solid green"
-                    : "1px solid darkblue",
-                  borderRadius: "20px",
-                  color: buttonhover ? "green" : "darkblue",
-                }}
-              >
-                Shop All Product
-              </button>
+                  onMouseEnter={() => setbuttonhover(!buttonhover)}
+                  onMouseLeave={() => setbuttonhover(!buttonhover)}
+                  onClick={() =>
+                    history.push({
+                      pathname: `/all`,
+                    })
+                  }
+                  type="button"
+                  style={{
+                    marginLeft: "20px",
+                    marginTop: "10px",
+                    padding: "10px",
+                    fontSize: "18px",
+                    backgroundColor: "#fff",
+                    border: buttonhover
+                      ? "1px solid green"
+                      : "1px solid darkblue",
+                    borderRadius: "20px",
+                    color: buttonhover ? "green" : "darkblue",
+                  }}
+                >
+                  Shop All Product
+                </button>
               </div>
               <Row>
                 {sugdata.map((productdata, index) => {
                   return (
-                    <Col  className="mb-5" key={index}>
+                    <Col className="mb-5" key={index}>
                       <Card style={{ border: "none" }}>
                         <div
                           style={{ border: "none", cursor: "pointer" }}

@@ -1,14 +1,56 @@
-import React, { useEffect } from "react";
-import { Redirect, Link } from "react-router-dom";
+import React, { useEffect, useRef  } from "react";
+import { Redirect, Link, useHistory } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Stack from "react-bootstrap/Stack";
 import Form from "react-bootstrap/Form";
+import { useToasts } from "react-toast-notifications";
 
 const Signin = () => {
-
+  const email = useRef();
+  const password = useRef();
+  const {addToast} = useToasts();
+  const history = useHistory();
+  const getlogininfo = window.localStorage.getItem("logininfo");
+  const logininfo = getlogininfo ? JSON.parse(getlogininfo) : [];
+  const submitlogin = () => {
+    if (logininfo) {
+      if(email.current.value === ""){
+        addToast("Please enter your Email", {
+          appearance: "warning",
+          autoDismiss: true,
+        });
+      }
+      if(password.current.value === "" ){
+        addToast("Please enter your Password", {
+          appearance: "warning",
+          autoDismiss: true,
+        });
+      }
+      if(logininfo.email === email.current.value && logininfo.password === password.current.value){
+        addToast("Login Success!", {
+          appearance: "success",
+          autoDismiss: true,
+        });
+        history.push({
+          pathname: `/`,
+        });
+      }else{
+        addToast("Email or Password doesn't match", {
+          appearance: "error",
+          autoDismiss: true,
+        });
+      }
+      
+    }else{
+      addToast("No account", {
+        appearance: "error",
+        autoDismiss: true,
+      });
+    }
+  };
 
   return (
     <>
@@ -52,16 +94,31 @@ const Signin = () => {
               <Form>
                 <h3 className="mb-4 text-center">MEMBER LOGIN</h3>
                 <Form.Group className="mb-4 my-3">
-                  <Form.Control type="email" placeholder="Email Address" />
+                  <Form.Control
+                    type="email"
+                    placeholder="Email Address"
+                    ref={email}
+                  />
                 </Form.Group>
                 <Form.Group className="mb-4">
-                  <Form.Control type="password" placeholder="Password" />
+                  <Form.Control
+                    type="password"
+                    placeholder="Password"
+                    ref={password}
+                  />
                 </Form.Group>
                 <Form.Group className="mb-4">
-                  <Button variant="submit px-3" type="submit">LOGIN</Button>
+                  <Button
+                    variant="submit px-3"
+                    onClick={() => submitlogin()}
+                  >
+                    LOGIN
+                  </Button>
                 </Form.Group>
                 <p2 className="text-center">New Account ? </p2>
-                <Link to="/register"><p2 style={StyleBody.underline}>Sign up Now </p2></Link>
+                <Link to="/register">
+                  <p2 style={StyleBody.underline}>Sign up Now </p2>
+                </Link>
               </Form>
             </div>
           </Row>
@@ -73,12 +130,13 @@ const Signin = () => {
 
 export default Signin;
 const StyleBody = {
-  backgroundImage: "url('https://i.pinimg.com/originals/1f/b2/2c/1fb22c2721dbab799e9f84368d1961bd.jpg')",
-  backgroundPosition: 'center',
-  backgroundSize: 'cover',
-  backgroundRepeat: 'no-repeat',
-  width: '100vw',
-  height: '100vh',
+  backgroundImage:
+    "url('https://i.pinimg.com/originals/1f/b2/2c/1fb22c2721dbab799e9f84368d1961bd.jpg')",
+  backgroundPosition: "center",
+  backgroundSize: "cover",
+  backgroundRepeat: "no-repeat",
+  width: "100vw",
+  height: "100vh",
 
-  underline: {textDecorationLine: 'underline', color: 'white' }
+  underline: { textDecorationLine: "underline", color: "white" },
 };

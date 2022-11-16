@@ -137,6 +137,7 @@ const Productdescription = () => {
               }}
             >
               {data.map((value, index) => {
+                console.log(value);
                 return (
                   <div key={index}>
                     <h2
@@ -148,6 +149,16 @@ const Productdescription = () => {
                     >
                       {value.name}
                     </h2>
+                    <h4
+                      style={{
+                        margin: "20px",
+                        fontSize: "40px",
+                        color: "#16193a",
+                      }}
+                    >
+                      {value.brand}
+                    </h4>
+
 
                     {value.product_options.map((productimage, index2) => {
                       return (
@@ -207,16 +218,32 @@ const Productdescription = () => {
                     </details>
                     <hr />
                     <details>
-                      <summary>Connection &amp; Returns</summary>
+                      <summary>Connection &amp; Accessories</summary>
+
                       <h5 style={{ marginLeft: "20px", marginTop: "15px" }}>
-                        Steel is my body and fire is my blood.
+                        Connection :{" "}
+                        {value.description.product_details.connection}
+                      </h5>
+                      <h5 style={{ marginLeft: "20px", marginTop: "15px" }}>
+                        Accessories :{" "}
+                        {value.description.product_details.accessories}
                       </h5>
                     </details>
                     <hr />
                     <details>
-                      <summary>Environmental impact</summary>
+                      <summary>Features</summary>
                       <h5 style={{ marginLeft: "20px", marginTop: "15px" }}>
-                        I have created over a thousand blade.
+                        Type : {value.description.product_features.type}
+                      </h5>
+                      <h5 style={{ marginLeft: "20px", marginTop: "15px" }}>
+                        Port Input :{" "}
+                        {value.description.product_features.port_input}
+                      </h5>
+                      <h5 style={{ marginLeft: "20px", marginTop: "15px" }}>
+                        Microphone :{" "}
+                        {value.description.product_features.microphone === false
+                          ? "True"
+                          : "False"}
                       </h5>
                     </details>
                     <hr />

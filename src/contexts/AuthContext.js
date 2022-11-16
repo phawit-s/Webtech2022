@@ -3,8 +3,9 @@ import ineardata from "../assets/Inear.json";
 import earbuddata from "../assets/Earbud.json";
 import headphonedata from "../assets/Headphone.json";
 import speakerdata from "../assets/Speaker.json";
-import alldata from "../assets/All.json"
+import alldata from "../assets/All.json";
 const AuthContext = createContext({
+  currentUser: null,
   favproduct: null,
   filterbrands: null,
   filterprice: null,
@@ -30,6 +31,8 @@ export const AuthProvider = ({ children }) => {
   const [productcart, setProductCart] = useState("");
   const [checkoutcart, setCheckoutcart] = useState("");
   const [productdetail, setProductDetail] = useState("");
+  const [currentUser, setCurrentuser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getfavproductStorage = window.localStorage.getItem("favoriteproduct");
@@ -37,6 +40,9 @@ export const AuthProvider = ({ children }) => {
     const getcheckoutproductStorage =
       window.localStorage.getItem("checkoutcart");
     const getdetailproductStorage = window.localStorage.getItem("detail");
+    const getlogininfo = window.localStorage.getItem("logininfo");
+    const logininfo = JSON.parse(getlogininfo)
+    
     const itemsList = getfavproductStorage
       ? JSON.parse(getfavproductStorage)
       : [];
@@ -53,6 +59,8 @@ export const AuthProvider = ({ children }) => {
     setProductCart(cartlist);
     setCheckoutcart(checkoutlist);
     setProductDetail(detailList);
+    setCurrentuser(logininfo);
+    setLoading(false);
   }, []);
   useEffect(() => {
     console.log("filter brands", filterbrands);
@@ -60,11 +68,17 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     console.log("filter price", filterprice);
   }, [filterprice]);
-
+  useEffect(() => {
+    console.log("Authentication", currentUser);
+  }, [currentUser]);
   useEffect(() => {
     console.log("sort price", datasort);
   }, [datasort]);
-
+  if (loading) {
+    return (
+      <h6>Loading...</h6>
+    );
+  }
   async function favouriteProduct(data) {
     const getfavproductStorage = window.localStorage.getItem("favoriteproduct");
     const productdata = data;
@@ -152,41 +166,42 @@ export const AuthProvider = ({ children }) => {
     if (category === "Allproduct") {
       setDataSort(
         alldata.sort((a, b) =>
-          sortby == "Low to High" ? a.price - b.price : b.price - a.price
+          sortby === "Low to High" ? a.price - b.price : b.price - a.price
         )
       );
     }
     if (category === "In Ear") {
       setDataSort(
         ineardata.sort((a, b) =>
-          sortby == "Low to High" ? a.price - b.price : b.price - a.price
+          sortby === "Low to High" ? a.price - b.price : b.price - a.price
         )
       );
     }
     if (category === "หูฟังเอียร์บัด") {
       setDataSort(
         earbuddata.sort((a, b) =>
-          sortby == "Low to High" ? a.price - b.price : b.price - a.price
+          sortby === "Low to High" ? a.price - b.price : b.price - a.price
         )
       );
     }
     if (category === "WirelessHeadphone") {
       setDataSort(
         headphonedata.sort((a, b) =>
-          sortby == "Low to High" ? a.price - b.price : b.price - a.price
+          sortby === "Low to High" ? a.price - b.price : b.price - a.price
         )
       );
     }
     if (category === "Bluetooth-Speaker") {
       setDataSort(
         speakerdata.sort((a, b) =>
-          sortby == "Low to High" ? a.price - b.price : b.price - a.price
+          sortby === "Low to High" ? a.price - b.price : b.price - a.price
         )
       );
     }
   }
 
   const value = {
+    currentUser,
     favproduct,
     filterbrands,
     filterprice,

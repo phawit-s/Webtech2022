@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
-import { Redirect, Link } from "react-router-dom";
+import React, { useEffect, useRef } from "react";
+import { Redirect, Link, useHistory } from "react-router-dom";
+import { useToasts } from "react-toast-notifications";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -8,7 +9,36 @@ import Stack from "react-bootstrap/Stack";
 import Form from "react-bootstrap/Form";
 
 const Register = () => {
-
+  const username = useRef();
+  const email = useRef();
+  const password = useRef();
+  const confirmpassword = useRef();
+  const { addToast } = useToasts();
+  const history = useHistory();
+  const signup = () => {
+    if (password.current.value === confirmpassword.current.value) {
+      window.localStorage.setItem(
+        "logininfo",
+        JSON.stringify({
+          username: username.current.value,
+          email: email.current.value,
+          password: password.current.value,
+        })
+      );
+      addToast("Register Success!!", {
+        appearance: "success",
+        autoDismiss: true,
+      });
+      history.push({
+        pathname: `/signin`,
+      });
+    } else {
+      addToast("Password don't match", {
+        appearance: "error",
+        autoDismiss: true,
+      });
+    }
+  };
 
   return (
     <>
@@ -52,22 +82,46 @@ const Register = () => {
               <Form>
                 <h3 className="mb-4 text-center">CREATE ACCOUNT</h3>
                 <Form.Group className="mb-4 my-3">
-                  <Form.Control type="username" placeholder="User Name" />
+                  <Form.Control
+                    type="username"
+                    ref={username}
+                    placeholder="User Name"
+                  />
                 </Form.Group>
                 <Form.Group className="mb-4 my-3">
-                  <Form.Control type="email" placeholder="Email Address" />
+                  <Form.Control
+                    type="email"
+                    ref={email}
+                    placeholder="Email Address"
+                  />
                 </Form.Group>
                 <Form.Group className="mb-4">
-                  <Form.Control type="password" placeholder="Password" />
+                  <Form.Control
+                    type="password"
+                    ref={password}
+                    placeholder="Password"
+                  />
                 </Form.Group>
                 <Form.Group className="mb-4">
-                  <Form.Control type="password" placeholder="Confirm Passsword" />
+                  <Form.Control
+                    type="password"
+                    ref={confirmpassword}
+                    placeholder="Confirm Passsword"
+                  />
                 </Form.Group>
                 <Form.Group className="mb-4">
-                  <Button variant="submit px-3" type="submit">SIGN UP</Button>
+                  <Button
+                    variant="submit px-3"
+                    type="submit"
+                    onClick={() => signup()}
+                  >
+                    SIGN UP
+                  </Button>
                 </Form.Group>
                 <p2 className="text-center">Have already an account ? </p2>
-                <Link to="/signin"><p2 style={StyleBody.underline}>Login here</p2></Link>
+                <Link to="/signin">
+                  <p2 style={StyleBody.underline}>Login here</p2>
+                </Link>
               </Form>
             </div>
           </Row>
@@ -79,12 +133,13 @@ const Register = () => {
 
 export default Register;
 const StyleBody = {
-  backgroundImage: "url('https://i.pinimg.com/originals/1f/b2/2c/1fb22c2721dbab799e9f84368d1961bd.jpg')",
-  backgroundPosition: 'center',
-  backgroundSize: 'cover',
-  backgroundRepeat: 'no-repeat',
-  width: '100vw',
-  height: '100vh',
+  backgroundImage:
+    "url('https://i.pinimg.com/originals/1f/b2/2c/1fb22c2721dbab799e9f84368d1961bd.jpg')",
+  backgroundPosition: "center",
+  backgroundSize: "cover",
+  backgroundRepeat: "no-repeat",
+  width: "100vw",
+  height: "100vh",
 
-  underline: {textDecorationLine: 'underline', color: 'white' }
+  underline: { textDecorationLine: "underline", color: "white" },
 };

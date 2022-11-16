@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { Redirect, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -19,15 +19,18 @@ import Navbarcomponent from "./navbar";
 import { useToasts } from "react-toast-notifications";
 
 const Wishlist = () => {
-  const { favproduct, addtocart } = useAuth();
+  const { favproduct, addtocart, gotodetail } = useAuth();
   const { addToast } = useToasts();
+  const history = useHistory();
   const [selected, setSelected] = useState([]);
   const [count, setCount] = useState(0);
   const [items, setItems] = useState([...favproduct]);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
+  const result = [...new Set(items.map((a) => JSON.stringify(a)))].map((a) =>
+    JSON.parse(a)
+  );
   const clearWishlist = () => {
     setItems([]);
     localStorage.removeItem("favoriteproduct");
@@ -48,9 +51,13 @@ const Wishlist = () => {
     setSelected(updatedList);
     console.log(updatedList);
   };
-  const result = [...new Set(items.map((a) => JSON.stringify(a)))].map((a) =>
-    JSON.parse(a)
-  );
+  const changepage = (index) => {
+    gotodetail(result[index]);
+    history.push({
+      pathname: "/description",
+    });
+  };
+
   const pickcart = (index) => {
     addtocart(result[index]);
     addToast("Add to cart!", {
@@ -144,6 +151,8 @@ const Wishlist = () => {
                         return (
                           <Carousel.Item>
                             <img
+                              onClick={() => changepage(index)}
+                              style={{ cursor: "pointer" }}
                               className="d-block w-100"
                               src={`/image/${e}`}
                               alt="First slide"
@@ -163,12 +172,14 @@ const Wishlist = () => {
                           item_id={item.id}
                           style={{ width: "30px", height: "30px" }}
                           onChange={(e) => {
-                            handleCheck(item.id, e.target.checked)
+                            handleCheck(item.id, e.target.checked);
                           }}
                         />
                       </Col>
                       <Col md={10} className="pb-3">
-                        <h3 className="pb-2 text-medium">{item.id} {item.name}</h3>
+                        <h3 className="pb-2 text-medium">
+                          {item.id} {item.name}
+                        </h3>
                         <h5>
                           <span className="is-right has-text-info text-small">
                             {item.price.toLocaleString("th-TH", {
