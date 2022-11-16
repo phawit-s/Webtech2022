@@ -17,17 +17,20 @@ import {
 } from "react-bootstrap";
 import Navbarcomponent from "../navbar";
 import Footer from "../footer";
+import { useHistory } from "react-router-dom";
 
 const Productdescription = () => {
   const { productdetail, favouriteProduct, gotodetail } = useAuth();
   const [data, setData] = useState([...productdetail]);
   const [sugdata, setSugdata] = useState([...suggestiondata]);
   const [hoverimage, setHoverimage] = useState(false);
+  const [buttonhover, setbuttonhover] = useState(false);
   const [selectedoption, setSelectedoption] = useState("0");
   const [imageid, setImageid] = useState("");
   const [productid, setProductid] = useState("");
   const [colorid, setColorid] = useState("");
   const { addToast } = useToasts();
+  const history = useHistory();
 
   useEffect(() => {
     setData([...productdetail]);
@@ -188,7 +191,6 @@ const Productdescription = () => {
           </div>
         </Row>
 
-
         <div style={{ float: "left", marginLeft: "15%" }}>
           <div>
             <div id="main">
@@ -196,10 +198,26 @@ const Productdescription = () => {
                 Bestsellers
               </h1>
               <button
+                onMouseEnter={() => setbuttonhover(!buttonhover)}
+                onMouseLeave={() => setbuttonhover(!buttonhover)}
+                onClick={()=>history.push({
+                  pathname: `/all`,
+                })}
                 type="button"
-                style={{ marginLeft: "20px", fontSize: "20px" }}
+                style={{
+                  marginLeft: "20px",
+                  marginTop: "10px",
+                  padding: "10px",
+                  fontSize: "18px",
+                  backgroundColor: "#fff",
+                  border: buttonhover
+                    ? "1px solid green"
+                    : "1px solid darkblue",
+                  borderRadius: "20px",
+                  color: buttonhover ? "green" : "darkblue",
+                }}
               >
-                Shop all sunglasses
+                Shop All Product
               </button>
             </div>
             <Row>

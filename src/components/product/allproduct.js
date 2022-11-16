@@ -45,7 +45,6 @@ const Allproduct = () => {
       setData(datasort);
     }
   }, [datasort]);
-
   useEffect(() => {
     if (filterbrands) {
       setData(filterbrands);

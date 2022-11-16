@@ -24,6 +24,7 @@ const Home = () => {
   const { productdetail, favouriteProduct, gotodetail } = useAuth();
   const [data, setData] = useState([...productdetail]);
   const [sugdata, setSugdata] = useState([...suggestiondata]);
+  const [buttonhover, setbuttonhover] = useState(false);
   const [hoverimage, setHoverimage] = useState(false);
   const [selectedoption, setSelectedoption] = useState("0");
   const [imageid, setImageid] = useState("");
@@ -141,11 +142,27 @@ const Home = () => {
                   Bestsellers
                 </h1>
                 <button
-                  type="button"
-                  style={{ marginLeft: "20px", fontSize: "20px" }}
-                >
-                  Shop all sunglasses
-                </button>
+                onMouseEnter={() => setbuttonhover(!buttonhover)}
+                onMouseLeave={() => setbuttonhover(!buttonhover)}
+                onClick={()=>history.push({
+                  pathname: `/all`,
+                })}
+                type="button"
+                style={{
+                  marginLeft: "20px",
+                  marginTop: "10px",
+                  padding: "10px",
+                  fontSize: "18px",
+                  backgroundColor: "#fff",
+                  border: buttonhover
+                    ? "1px solid green"
+                    : "1px solid darkblue",
+                  borderRadius: "20px",
+                  color: buttonhover ? "green" : "darkblue",
+                }}
+              >
+                Shop All Product
+              </button>
               </div>
               <Row>
                 {sugdata.map((productdata, index) => {
