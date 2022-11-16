@@ -31,9 +31,7 @@ const Checkout = () => {
 
   useEffect(() => {
     const getprice = window.localStorage.getItem("checkoutprice");
-    const pricelist = getprice
-      ? getprice
-      : "0";
+    const pricelist = getprice ? getprice : "0";
     if (pricelist) {
       setPrice(parseInt(pricelist));
     }
@@ -203,7 +201,7 @@ const Checkout = () => {
                   <Col>
                     <div>
                       <Button
-                        onClick={()=>payment()}
+                        onClick={() => payment()}
                         className="colorBtnCheckout btn-lg"
                         type="submit"
                         style={{ float: "right" }}
