@@ -145,6 +145,9 @@ const Footer = () => {
               <p>Home</p>
             </Link>
 
+            <Link to="/promotion" style={{ cursor: "pointer", color: "#fff" }}>
+              <p>Promotion</p>
+            </Link>
             <Link to="/headphone" style={{ cursor: "pointer", color: "#fff" }}>
               <p>Headphone</p>
             </Link>

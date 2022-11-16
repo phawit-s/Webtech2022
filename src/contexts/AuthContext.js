@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
+import promotiondata from "../assets/Promotion.json"
 import ineardata from "../assets/Inear.json";
 import earbuddata from "../assets/Earbud.json";
 import headphonedata from "../assets/Headphone.json";
@@ -132,6 +133,9 @@ export const AuthProvider = ({ children }) => {
     if (category === "Bluetooth-Speaker") {
       setFilterBrands(speakerdata.filter((data) => data.brand.includes(brand)));
     }
+    if (category === "Promotion") {
+      setFilterBrands(promotiondata.filter((data) => data.brand.includes(brand)));
+    }
   }
 
   async function filterbyprice(min, max, category) {
@@ -158,6 +162,11 @@ export const AuthProvider = ({ children }) => {
     if (category === "Bluetooth-Speaker") {
       setFilterPrice(
         speakerdata.filter((data) => data.price >= min && data.price <= max)
+      );
+    }
+    if (category === "Promotion") {
+      setFilterPrice(
+        promotiondata.filter((data) => data.price >= min && data.price <= max)
       );
     }
   }
@@ -194,6 +203,13 @@ export const AuthProvider = ({ children }) => {
     if (category === "Bluetooth-Speaker") {
       setDataSort(
         speakerdata.sort((a, b) =>
+          sortby === "Low to High" ? a.price - b.price : b.price - a.price
+        )
+      );
+    }
+    if (category === "Promotion") {
+      setDataSort(
+        promotiondata.sort((a, b) =>
           sortby === "Low to High" ? a.price - b.price : b.price - a.price
         )
       );

@@ -11,6 +11,7 @@ import Productdescription from "./components/product/productdescription";
 import Checkout from "./components/checkout";
 import Wishlist from "./components/wishlist";
 import Cart from "./components/cart";
+import Promotion from "./components/promotion";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { AuthProvider } from "./contexts/AuthContext";
 import { ThemeProvider } from "react-bootstrap";
@@ -39,6 +40,7 @@ const App = () => {
               <Route exact path="/checkout" component={Checkout} />
               <Route exact path="/wishlist" component={Wishlist} />
               <Route exact path="/cart" component={Cart} />
+              <Route exact path="/promotion" component={Promotion} />
             </Switch>
           </Router>
         </AuthProvider>

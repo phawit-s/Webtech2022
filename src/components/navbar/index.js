@@ -70,6 +70,9 @@ const Navbarcomponent = () => {
             <Navbar.Brand href="/" className="mx-4">
               Home
             </Navbar.Brand>
+            <Nav.Link href="/promotion" className="ml-5 mt-1">
+              Promotion
+            </Nav.Link>
             <Nav
               className="mx-4 mt-1"
               style={{ cursor: "pointer" }}
