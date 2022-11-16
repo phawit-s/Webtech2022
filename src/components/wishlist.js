@@ -57,14 +57,9 @@ const Wishlist = () => {
     return price;
   }, [selected]);
 
-  useEffect(()=>{
-    const set = new Set(items.map(item => JSON.stringify(item)));
-    const reduceitems = [...set].map(item => JSON.parse(item));
-    setItems([...reduceitems]);
-  },[])
-
-  
-
+  const result = [...new Set(items.map((a) => JSON.stringify(a)))].map((a) =>
+    JSON.parse(a)
+  );
 
   return (
     <>
@@ -131,7 +126,7 @@ const Wishlist = () => {
         </div>
         <hr className="pt-2"></hr>
         <Row className="px-4">
-          {items.map((item, index) => {
+          {result.map((item, index) => {
             return (
               <Col sm={6} md={4} key={index}>
                 <Card className="border-0">
