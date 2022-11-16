@@ -1,4 +1,4 @@
-import React, { useEffect, useRef  } from "react";
+import React, { useEffect, useRef } from "react";
 import { Redirect, Link, useHistory } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -11,40 +11,30 @@ import { useToasts } from "react-toast-notifications";
 const Signin = () => {
   const email = useRef();
   const password = useRef();
-  const {addToast} = useToasts();
+  const { addToast } = useToasts();
   const history = useHistory();
   const getlogininfo = window.localStorage.getItem("logininfo");
   const logininfo = getlogininfo ? JSON.parse(getlogininfo) : [];
   const submitlogin = () => {
     if (logininfo) {
-      if(email.current.value === ""){
-        addToast("Please enter your Email", {
-          appearance: "warning",
-          autoDismiss: true,
+      if (
+        logininfo.email === email.current.value &&
+        logininfo.password === password.current.value
+      ) {
+        history.push({
+          pathname: `/`,
         });
-      }
-      if(password.current.value === "" ){
-        addToast("Please enter your Password", {
-          appearance: "warning",
-          autoDismiss: true,
-        });
-      }
-      if(logininfo.email === email.current.value && logininfo.password === password.current.value){
         addToast("Login Success!", {
           appearance: "success",
           autoDismiss: true,
         });
-        history.push({
-          pathname: `/`,
-        });
-      }else{
+      } else {
         addToast("Email or Password doesn't match", {
           appearance: "error",
           autoDismiss: true,
         });
       }
-      
-    }else{
+    } else {
       addToast("No account", {
         appearance: "error",
         autoDismiss: true,
@@ -108,10 +98,7 @@ const Signin = () => {
                   />
                 </Form.Group>
                 <Form.Group className="mb-4">
-                  <Button
-                    variant="submit px-3"
-                    onClick={() => submitlogin()}
-                  >
+                  <Button variant="submit px-3" onClick={() => submitlogin()}>
                     LOGIN
                   </Button>
                 </Form.Group>
