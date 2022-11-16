@@ -59,7 +59,8 @@ const Home = () => {
     setColorid(index2);
   };
   const addfavourite = (index) => {
-    favouriteProduct(data[index]);
+
+    favouriteProduct(sugdata[index]);
     addToast("Add to wishlist!", {
       appearance: "success",
       autoDismiss: true,
