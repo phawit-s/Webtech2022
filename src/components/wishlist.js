@@ -66,13 +66,17 @@ const Wishlist = () => {
     });
   };
   const subTotalPrice = useMemo(() => {
+    if (items.length !== 0) {
+      let price = 0;
+      selected.forEach((item_id) => {
+        const item = items.find((e) => e.id === item_id);
+        price += item.price;
+      });
+      return price;
+    }else{
+      return 0
+    }
     // TODO: Calculate subtotal price
-    let price = 0;
-    selected.forEach((item_id) => {
-      const item = items.find((e) => e.id === item_id);
-      price += item.price;
-    });
-    return price;
   }, [selected, items]);
 
   return (
