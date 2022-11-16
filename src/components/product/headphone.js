@@ -79,13 +79,6 @@ const Headphone = () => {
     setTogglePrice(!togglePrice);
     setToggleRoom(false);
   };
-  const pickcart = (index) => {
-    addtocart(data[index]);
-    addToast("Add to cart!", {
-      appearance: "success",
-      autoDismiss: true,
-    });
-  };
 
   const changeimage = async (index) => {
     setHoverimage(!hoverimage);
@@ -390,11 +383,11 @@ const Headphone = () => {
                     {productdata.name}
                   </h5>
                   <h6
-                    onClick={() => pickcart(index)}
+                    
                     style={{
                       marginLeft: "30px",
                       fontSize: "20px",
-                      cursor: "pointer",
+                      
                     }}
                   >
                     {productdata.price.toLocaleString("th-TH", {

@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useCallback, useMemo } from "react";
-
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import suggestiondata from "../../assets/Suggestion.json";
@@ -18,9 +17,10 @@ import {
 import Navbarcomponent from "../navbar";
 import Footer from "../footer";
 import { useHistory } from "react-router-dom";
+import { AiFillHeart } from "react-icons/ai";
 
 const Productdescription = () => {
-  const { productdetail, favouriteProduct, gotodetail } = useAuth();
+  const { productdetail, favouriteProduct, gotodetail, addtocart } = useAuth();
   const [data, setData] = useState([...productdetail]);
   const [sugdata, setSugdata] = useState([...suggestiondata]);
   const [hoverimage, setHoverimage] = useState(false);
@@ -34,13 +34,20 @@ const Productdescription = () => {
 
   useEffect(() => {
     setData([...productdetail]);
+    window.scrollTo(0, 0);
   }, [productdetail]);
 
   const changepage = (index) => {
     gotodetail(sugdata[index]);
     window.scrollTo(0, 0);
   };
-
+  const pickcart = (index) => {
+    addtocart(data[index]);
+    addToast("Add to cart!", {
+      appearance: "success",
+      autoDismiss: true,
+    });
+  };
   const changeimage = async (index) => {
     setHoverimage(!hoverimage);
     setImageid(index);
@@ -161,29 +168,58 @@ const Productdescription = () => {
                         currency: "THB",
                       })}
                     </h3>
+                    <Col>
+                      <Button
+                        onClick={() => pickcart(index)}
+                        type="button"
+                        style={{
+                          marginLeft: "20px",
+                          marginTop: "10px",
+                          padding: "10px",
+                          fontSize: "18px",
+                          backgroundColor: "green",
+                          border: "1px solid white",
+                          borderRadius: "15px",
+                          color: "#fff",
+                        }}
+                      >
+                        Add to cart
+                      </Button>
+                      <AiFillHeart
+                        onClick={() => addfavourite(index)}
+                        style={{
+                          cursor: "pointer",
+                          marginTop: "10px",
+                          marginLeft: "20px",
+                          color: "red",
+                          width: "35px",
+                          height: "35px",
+                        }}
+                      />
+                    </Col>
 
-                    <div id="describe">
-                      <hr className="line one" />
-                      <details>
-                        <summary>Description &amp; Size</summary>
-                        <p className="word">I am the bone of my sword</p>
-                      </details>
-                      <hr className="line two" />
-                      <details>
-                        <summary>Shipping &amp; Returns</summary>
-                        <p className="word">
-                          Steel is my body and fire is my blood.
-                        </p>
-                      </details>
-                      <hr className="line three" />
-                      <details>
-                        <summary>Environmental impact</summary>
-                        <p className="word">
-                          I have created over a thousand blade.
-                        </p>
-                      </details>
-                      <hr className="line four" />
-                    </div>
+                    <hr />
+                    <details>
+                      <summary>Description</summary>
+                      <h5 style={{ marginLeft: "20px", marginTop: "15px" }}>
+                        {value.description.product_details.details}
+                      </h5>
+                    </details>
+                    <hr />
+                    <details>
+                      <summary>Connection &amp; Returns</summary>
+                      <h5 style={{ marginLeft: "20px", marginTop: "15px" }}>
+                        Steel is my body and fire is my blood.
+                      </h5>
+                    </details>
+                    <hr />
+                    <details>
+                      <summary>Environmental impact</summary>
+                      <h5 style={{ marginLeft: "20px", marginTop: "15px" }}>
+                        I have created over a thousand blade.
+                      </h5>
+                    </details>
+                    <hr />
                   </div>
                 );
               })}
@@ -197,12 +233,14 @@ const Productdescription = () => {
               <h1 style={{ margin: 0, color: "darkblue", fontSize: "50px" }}>
                 Bestsellers
               </h1>
-              <button
+              <Button
                 onMouseEnter={() => setbuttonhover(!buttonhover)}
                 onMouseLeave={() => setbuttonhover(!buttonhover)}
-                onClick={()=>history.push({
-                  pathname: `/all`,
-                })}
+                onClick={() =>
+                  history.push({
+                    pathname: `/all`,
+                  })
+                }
                 type="button"
                 style={{
                   marginLeft: "20px",
@@ -218,7 +256,7 @@ const Productdescription = () => {
                 }}
               >
                 Shop All Product
-              </button>
+              </Button>
             </div>
             <Row>
               {sugdata.map((productdata, index) => {

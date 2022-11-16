@@ -323,7 +323,6 @@ const Inear = () => {
                     style={{ border: "none", cursor: "pointer" }}
                     onMouseEnter={() => changeimage(index)}
                     onMouseLeave={() => setHoverimage(!hoverimage)}
-                    
                   >
                     {hoverimage && imageid === index && productid === "" ? (
                       <Image
@@ -401,11 +400,9 @@ const Inear = () => {
                     {productdata.name}
                   </h5>
                   <h6
-                    onClick={() => pickcart(index)}
                     style={{
                       marginLeft: "30px",
                       fontSize: "20px",
-                      cursor: "pointer",
                     }}
                   >
                     {productdata.price.toLocaleString("th-TH", {

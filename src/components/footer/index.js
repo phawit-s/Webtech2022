@@ -1,4 +1,5 @@
-import React, { useEffect, useState, useCallback, useMemo } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -129,58 +130,73 @@ const Footer = () => {
         `}
       </style>
       <div
-          style={{
-            float: "left",
-            color: "white",
-            backgroundColor: "#16193a",
-            width: "100%",
-            height: "400px",
-          }}
-        >
-          <div className="L" />
-          <div className="M">
-            <div className="A one1">
-              <p>Mission</p>
-              <p>Sunglasses</p>
-              <p>Eyeglasses</p>
-              <p>Find store</p>
-            </div>
-            <div className="A two2">
-              <p>FAQ</p>
-              <p>Retailer login</p>
-              <p>Jobs</p>
-              <p>Contact</p>
-            </div>
-            <div className="A three3" style={{ float: "right" }}>
-              <img
-                src="https://www.amnh.org/var/ezflow_site/storage/images/media/amnh/images/explore/ology-images/earth/what-s-the-big-idea-about-earth/earth-icon/4690373-1-eng-US/earth-icon.png"
-                alt=""
-                style={{ width: "150px", height: "150px" }}
-              />
-            </div>
+        style={{
+          float: "left",
+          color: "white",
+          backgroundColor: "#16193a",
+          width: "100%",
+          height: "400px",
+        }}
+      >
+        <div className="L" />
+        <div className="M">
+          <div className="A one1">
+            <Link to="/" style={{ cursor: "pointer", color: "#fff" }}>
+              <p>Home</p>
+            </Link>
+
+            <Link to="/headphone" style={{ cursor: "pointer", color: "#fff" }}>
+              <p>Headphone</p>
+            </Link>
+            <Link to="/earbud" style={{ cursor: "pointer", color: "#fff" }}>
+              <p>Earbud</p>
+            </Link>
+            <Link to="/inear" style={{ cursor: "pointer", color: "#fff" }}>
+              <p>Inear</p>
+            </Link>
           </div>
-          <hr className="line six" />
-          <div className="Lild" />
-          <div className="Mild">
-            <div className="C">
-              <p>
-                Dick Moby, Herengracht 493, 1017 BT, Amsterdam The Netherlands,
-                Planet Earth.
-              </p>
-            </div>
-            <div className="D">
-              <p
-                style={{ float: "right", color: "white", paddingLeft: "50px" }}
-              >
-                dick@dick-moby.com
-              </p>
-              <p style={{ float: "right", color: "white" }}>
-                +31(0) 20 21 310 35
-              </p>
-            </div>
+          <div className="A two2">
+            <Link to="/speaker" style={{ cursor: "pointer", color: "#fff" }}>
+              <p>Speaker</p>
+            </Link>
+            <Link to="/all" style={{ cursor: "pointer", color: "#fff" }}>
+              <p>All Product</p>
+            </Link>
+            <Link to="/cart" style={{ cursor: "pointer", color: "#fff" }}>
+              <p>Cart</p>
+            </Link>
+            <Link to="/wishlist" style={{ cursor: "pointer", color: "#fff" }}>
+              <p>Wishlist</p>
+            </Link>
           </div>
-          <div className="Rild" />
+          <div className="A three3" style={{ float: "right" }}>
+            <img
+              src="https://www.amnh.org/var/ezflow_site/storage/images/media/amnh/images/explore/ology-images/earth/what-s-the-big-idea-about-earth/earth-icon/4690373-1-eng-US/earth-icon.png"
+              alt=""
+              style={{ width: "150px", height: "150px" }}
+            />
+          </div>
         </div>
+        <hr className="line six" />
+        <div className="Lild" />
+        <div className="Mild">
+          <div className="C">
+            <p>
+              No. 1, Chalong Krung 1, Chalong Krung Road, Lat Krabang
+              Sub-district, Lat Krabang District, Bangkok , 10520, Thailand
+            </p>
+          </div>
+          <div className="D">
+            <p style={{ float: "right", color: "white", paddingLeft: "50px" }}>
+              Headphone-moby.com
+            </p>
+            <p style={{ float: "right", color: "white" }}>
+              +66(0) 99 99 99 01
+            </p>
+          </div>
+        </div>
+        <div className="Rild" />
+      </div>
     </>
   );
 };

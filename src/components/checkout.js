@@ -14,8 +14,8 @@ import {
 import rawItem from "../assets/Inear.json";
 import { useAuth } from "../contexts/AuthContext";
 import { useToasts } from "react-toast-notifications";
-import Countries from "../assets/countries.json"
-import Provinces from "../assets/thai-provinces.json"
+import Countries from "../assets/countries.json";
+import Provinces from "../assets/thai-provinces.json";
 
 const Checkout = () => {
   const { checkoutcart } = useAuth();
@@ -26,8 +26,18 @@ const Checkout = () => {
   const [textGift, setTextGift] = useState("");
   const { addToast } = useToasts();
 
-  const [selectedCountry, setSelectedCountry] = useState(Countries[0])
+  const [selectedCountry, setSelectedCountry] = useState(Countries[0]);
+  const [price, setPrice] = useState("");
 
+  useEffect(() => {
+    const getprice = window.localStorage.getItem("checkoutprice");
+    const pricelist = getprice
+      ? getprice
+      : "0";
+    if (pricelist) {
+      setPrice(parseInt(pricelist));
+    }
+  });
 
   useEffect(() => {
     setItems([...checkoutcart]);
@@ -96,10 +106,13 @@ const Checkout = () => {
                 <Form.Label className="pb-2 text-small">
                   Shipping Address
                 </Form.Label>
-                <Form.Select className="checkout" onChange={(e) => {
-                  setSelectedCountry(e.target.value)
-                }}>
-                  {Countries.map(country => (
+                <Form.Select
+                  className="checkout"
+                  onChange={(e) => {
+                    setSelectedCountry(e.target.value);
+                  }}
+                >
+                  {Countries.map((country) => (
                     <option key={country}>{country}</option>
                   ))}
                 </Form.Select>
@@ -150,7 +163,7 @@ const Checkout = () => {
                   {selectedCountry === "Thailand" && (
                     <Col>
                       <Form.Select className="checkout">
-                        {Provinces.map(province => (
+                        {Provinces.map((province) => (
                           <option key={province}>{province}</option>
                         ))}
                       </Form.Select>
@@ -274,7 +287,7 @@ const Checkout = () => {
               </Col>
               <Col>
                 <h6 className="float-end text-small fw-semibold">
-                  {subTotalPrice.toLocaleString("th-TH", {
+                  {price.toLocaleString("th-TH", {
                     style: "currency",
                     currency: "THB",
                   })}
@@ -301,7 +314,7 @@ const Checkout = () => {
                 <div className="float-end">
                   <span className="text-small fw-normal">Baht</span>{" "}
                   <span className="text-medium fw-semibold">
-                    {subTotalPrice.toLocaleString("th-TH", {
+                    {price.toLocaleString("th-TH", {
                       style: "currency",
                       currency: "THB",
                     })}

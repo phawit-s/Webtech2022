@@ -30,6 +30,7 @@ const Cart = () => {
 
   const checktopay = () => {
     checkout(result);
+    window.localStorage.setItem("checkoutprice", subTotalPrice)
     history.push({
       pathname: `/checkout`,
     });
@@ -183,6 +184,10 @@ const Cart = () => {
                           const updatedCartItems = [...items];
                           updatedCartItems.splice(i, 1);
                           setItems(updatedCartItems);
+                          window.localStorage.setItem(
+                            "productcart",
+                            JSON.stringify(updatedCartItems)
+                          );
                         }}
                       >
                         <span className="icon is-small">

@@ -401,11 +401,9 @@ const Speaker = () => {
                     {productdata.name}
                   </h5>
                   <h6
-                    onClick={() => pickcart(index)}
                     style={{
                       marginLeft: "30px",
                       fontSize: "20px",
-                      cursor: "pointer",
                     }}
                   >
                     {productdata.price.toLocaleString("th-TH", {
