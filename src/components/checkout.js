@@ -203,7 +203,7 @@ const Checkout = () => {
                   <Col>
                     <div>
                       <Button
-                        onClick={payment}
+                        onClick={()=>payment}
                         className="colorBtnCheckout btn-lg"
                         type="submit"
                         style={{ float: "right" }}
