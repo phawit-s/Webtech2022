@@ -36,10 +36,9 @@ const Wishlist = () => {
     setItems([...favproduct]);
   }, [favproduct]);
 
-  const handleCheck = (event) => {
+  const handleCheck = (item, isChecked) => {
     var updatedList = [...selected];
-    var item = event.target.getAttribute("item_id");
-    if (event.target.checked) {
+    if (isChecked) {
       updatedList = [...selected, parseInt(item)];
       setCount(count + 1);
     } else {
@@ -47,6 +46,7 @@ const Wishlist = () => {
       setCount(count - 1);
     }
     setSelected(updatedList);
+    console.log(updatedList);
   };
   const result = [...new Set(items.map((a) => JSON.stringify(a)))].map((a) =>
     JSON.parse(a)
@@ -66,7 +66,7 @@ const Wishlist = () => {
       price += item.price;
     });
     return price;
-  }, [selected]);
+  }, [selected, items]);
 
   return (
     <>
@@ -162,11 +162,13 @@ const Wishlist = () => {
                           type="checkbox"
                           item_id={item.id}
                           style={{ width: "30px", height: "30px" }}
-                          onChange={handleCheck}
+                          onChange={(e) => {
+                            handleCheck(item.id, e.target.checked)
+                          }}
                         />
                       </Col>
                       <Col md={10} className="pb-3">
-                        <h3 className="pb-2 text-medium">{item.name}</h3>
+                        <h3 className="pb-2 text-medium">{item.id} {item.name}</h3>
                         <h5>
                           <span className="is-right has-text-info text-small">
                             {item.price.toLocaleString("th-TH", {
