@@ -37,7 +37,8 @@
         "name": "Black",
         "image_name": [
           "16_Black_01.jpg",
-          "16_Black_02.jpg"
+          "16_Black_02.jpg",
+          "16_Black_03.jpg"
         ]
       },
       {
@@ -160,14 +161,17 @@
         "name": "Purple",
         "image_name": [
           "18_Purple_01.jpg",
-          "18_Purple_02.jpg"
+          "18_Purple_02.jpg",
+          "18_Purple_03.jpg"
         ]
       },
       {
         "name": "Blue",
         "image_name": [
           "18_Blue_01.jpg",
-          "18_Blue_02.jpg"
+          "18_Blue_02.jpg",
+          "18_Blue_03.jpg",
+          "18_Blue_04.jpg"
         ]
       }
     ]
@@ -271,14 +275,18 @@
         "name": "Black",
         "image_name": [
           "20_Black_01.jpg",
-          "20_Black_02.jpg"
+          "20_Black_02.jpg",
+          "20_Black_03.jpg",
+          "20_Black_04.jpg"
         ]
       },
       {
         "name": "White",
         "image_name": [
           "20_White_01.jpg",
-          "20_White_02.jpg"
+          "20_White_02.jpg",
+          "20_White_03.jpg",
+          "20_White_04.jpg"
         ]
       }
     ]

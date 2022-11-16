@@ -32,10 +32,10 @@
     "brand": "Sony",
     "price": 14490,
     "product_options": [
-      { "name": "Black", "image_name": ["01_black_01.jpg", "01_black_02.jpg"] },
+      { "name": "Black", "image_name": ["01_black_01.jpg", "01_black_02.jpg", "01_black_03.jpg"] },
       {
         "name": "Silver",
-        "image_name": ["01_silver_01.jpg", "01_silver_02.jpg"]
+        "image_name": ["01_silver_01.jpg", "01_silver_02.jpg", "01_silver_03.jpg", "01_silver_04.jpg"]
       }
     ]
   },
@@ -280,15 +280,15 @@
     "product_options": [
       {
         "name": "Black",
-        "image_name": ["06_black_01.jpg", "06_black_02.jpg"]
+        "image_name": ["06_black_01.jpg", "06_black_02.jpg","06_black_03.jpg", "06_black_04.jpg"]
       },
       {
         "name": "White",
-        "image_name": ["06_white_01.jpg", "06_white_02.jpg"]
+        "image_name": ["06_white_01.jpg", "06_white_02.jpg","06_white_03.jpg", "06_white_04.jpg"]
       },
       {
         "name": "Blue",
-        "image_name": ["06_blue_01.jpg", "06_blue_02.jpg"]
+        "image_name": ["06_blue_01.jpg", "06_blue_02.jpg","06_blue_03.jpg", "06_blue_04.jpg"]
       }
     ]
   },
@@ -326,15 +326,15 @@
     "product_options": [
       {
         "name": "Black",
-        "image_name": ["07_black_01.jpg", "07_black_02.jpg"]
+        "image_name": ["07_black_01.jpg", "07_black_02.jpg","07_black_03.jpg", "07_black_04.jpg"]
       },
       {
         "name": "White",
-        "image_name": ["07_white_01.jpg", "07_white_02.jpg"]
+        "image_name": ["07_white_01.jpg", "07_white_02.jpg","07_white_03.jpg", "07_white_04.jpg"]
       },
       {
         "name": "Grey",
-        "image_name": ["07_grey_01.jpg", "07_grey_02.jpg"]
+        "image_name": ["07_grey_01.jpg", "07_grey_02.jpg","07_grey_03.jpg", "07_grey_04.jpg"]
       }
     ]
   },
