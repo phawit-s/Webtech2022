@@ -24,9 +24,12 @@ const Cart = () => {
   useEffect(() => {
     setItems([...productcart]);
   }, [productcart]);
+  const result = [...new Set(items.map((a) => JSON.stringify(a)))].map((a) =>
+    JSON.parse(a)
+  );
 
   const checktopay = () => {
-    checkout(items);
+    checkout(result);
     history.push({
       pathname: `/checkout`,
     });
@@ -105,7 +108,7 @@ const Cart = () => {
         </Row>
         <hr></hr>
         <Row>
-          {items.map((item, i) => {
+          {result.map((item, i) => {
             return (
               <>
                 <Col md={6} className="py-3" key={item.id}>
