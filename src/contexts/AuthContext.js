@@ -98,7 +98,7 @@ export const AuthProvider = ({ children }) => {
     const productdata = data;
     setCheckoutcart(productdata);
     window.localStorage.setItem("checkoutcart", JSON.stringify(productdata));
-    window.localStorage.removeItem("productcart");
+    // window.localStorage.removeItem("productcart");
   }
   async function filterbybrand(brand, category) {
     if (category === "In Ear") {

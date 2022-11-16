@@ -16,9 +16,11 @@ import {
 import rawItem from "../assets/Headphone.json";
 import { useAuth } from "../contexts/AuthContext";
 import Navbarcomponent from "./navbar";
+import { useToasts } from "react-toast-notifications";
 
 const Wishlist = () => {
-  const { favproduct } = useAuth();
+  const { favproduct, addtocart } = useAuth();
+  const { addToast } = useToasts();
   const [selected, setSelected] = useState([]);
   const [count, setCount] = useState(0);
   const [items, setItems] = useState([...favproduct]);
@@ -46,7 +48,16 @@ const Wishlist = () => {
     }
     setSelected(updatedList);
   };
-
+  const result = [...new Set(items.map((a) => JSON.stringify(a)))].map((a) =>
+    JSON.parse(a)
+  );
+  const pickcart = (index) => {
+    addtocart(result[index]);
+    addToast("Add to cart!", {
+      appearance: "success",
+      autoDismiss: true,
+    });
+  };
   const subTotalPrice = useMemo(() => {
     // TODO: Calculate subtotal price
     let price = 0;
@@ -56,10 +67,6 @@ const Wishlist = () => {
     });
     return price;
   }, [selected]);
-
-  const result = [...new Set(items.map((a) => JSON.stringify(a)))].map((a) =>
-    JSON.parse(a)
-  );
 
   return (
     <>
@@ -169,23 +176,17 @@ const Wishlist = () => {
                           </span>
                         </h5>
                         <Row className="pt-2">
-                          <Link
-                            to={{
-                              pathname: "/cart",
-                              state: { selected },
+                          <Button
+                            type="submit"
+                            className="rounded-pill btn-lg text-topic"
+                            style={{
+                              backgroundColor: "#00b495",
+                              borderColor: "#00b495",
                             }}
+                            onClick={() => pickcart(index)}
                           >
-                            <Button
-                              type="submit"
-                              className="rounded-pill btn-lg text-topic"
-                              style={{
-                                backgroundColor: "#00b495",
-                                borderColor: "#00b495",
-                              }}
-                            >
-                              Add to cart
-                            </Button>
-                          </Link>
+                            Add to cart
+                          </Button>
                         </Row>
                       </Col>
                     </Row>
