@@ -3,6 +3,7 @@ import ineardata from "../assets/Inear.json";
 import earbuddata from "../assets/Earbud.json";
 import headphonedata from "../assets/Headphone.json";
 import speakerdata from "../assets/Speaker.json";
+import alldata from "../assets/All.json"
 const AuthContext = createContext({
   favproduct: null,
   filterbrands: null,
@@ -98,9 +99,11 @@ export const AuthProvider = ({ children }) => {
     const productdata = data;
     setCheckoutcart(productdata);
     window.localStorage.setItem("checkoutcart", JSON.stringify(productdata));
-    // window.localStorage.removeItem("productcart");
   }
   async function filterbybrand(brand, category) {
+    if (category === "Allproduct") {
+      setFilterBrands(alldata.filter((data) => data.brand.includes(brand)));
+    }
     if (category === "In Ear") {
       setFilterBrands(ineardata.filter((data) => data.brand.includes(brand)));
     }
@@ -118,6 +121,11 @@ export const AuthProvider = ({ children }) => {
   }
 
   async function filterbyprice(min, max, category) {
+    if (category === "Allproduct") {
+      setFilterPrice(
+        alldata.filter((data) => data.price >= min && data.price <= max)
+      );
+    }
     if (category === "In Ear") {
       setFilterPrice(
         ineardata.filter((data) => data.price >= min && data.price <= max)
@@ -141,6 +149,13 @@ export const AuthProvider = ({ children }) => {
   }
 
   async function sortbyprice(sortby, category) {
+    if (category === "Allproduct") {
+      setDataSort(
+        alldata.sort((a, b) =>
+          sortby == "Low to High" ? a.price - b.price : b.price - a.price
+        )
+      );
+    }
     if (category === "In Ear") {
       setDataSort(
         ineardata.sort((a, b) =>

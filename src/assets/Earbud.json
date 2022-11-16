@@ -22,7 +22,7 @@
     "product_options": [
       {
         "name": "2.5mm",
-        "image_name": ["10_2-5mm_01.jpg", "10_2-5mm_02.jpg"]
+        "image_name": ["10_2-5mm_01.jpg", "10_2-5mm_02.jpg","10_2-5mm_03.jpg","10_2-5mm_04.jpg"]
       },
       {
         "name": "3.5mm",
@@ -30,7 +30,7 @@
       },
       {
         "name": "4.4mm",
-        "image_name": ["10_4-4mm_01.jpg", "10_4-4mm_02.jpg"]
+        "image_name": ["10_4-4mm_01.jpg", "10_4-4mm_02.jpg", "10_4-4mm_03.jpg", "10_4-4mm_04.jpg"]
       }
     ]
   },
@@ -112,7 +112,7 @@
     "product_options": [
       {
         "name": "2.5 mm",
-        "image_name": ["12_VEMonk_01.jpg"]
+        "image_name": ["12_VEMonk_01.jpg", "12_VEMonk_02.jpg"]
       }
     ]
   },

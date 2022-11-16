@@ -1,20 +1,10 @@
-import React, {
-  useEffect,
-  useState,
-  useRef,
-} from "react";
-import {  useHistory } from "react-router-dom";
+import React, { useEffect, useState, useRef } from "react";
+import { useHistory } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Ineardata from "../../assets/Inear.json";
-import {
-  Form,
-  Button,
-  Card,
-  Image,
-  InputGroup,
-} from "react-bootstrap";
+import Allproductdata from "../../assets/All.json";
+import { Form, Button, Card, Image, InputGroup } from "react-bootstrap";
 import Navbarcomponent from "../navbar";
 import Footer from "../footer";
 import { useAuth } from "../../contexts/AuthContext";
@@ -22,9 +12,9 @@ import { useToasts } from "react-toast-notifications";
 import { AiOutlineHeart } from "react-icons/ai";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
-const Inear = () => {
-  const [data, setData] = useState([...Ineardata]);
-  const [sorteddata, setSorteddata] = useState([...Ineardata]);
+const Allproduct = () => {
+  const [data, setData] = useState([...Allproductdata]);
+  const [sorteddata, setSorteddata] = useState([...Allproductdata]);
   const [selectbrands, setSelectedBrands] = useState("Brands");
   const [pricelowtohigh, setPriceLowtoHigh] = useState("Price");
   const [hoverimage, setHoverimage] = useState(false);
@@ -106,9 +96,9 @@ const Inear = () => {
     setColorid(index2);
   };
   const sortprice = (value) => {
-    setSelectedBrands("Brands");
-    sortbyprice(value, "In Ear");
+    sortbyprice(value, "Allproduct");
     setPriceLowtoHigh(value);
+    setSelectedBrands("Brands");
     setToggleSortPrice(!toggleSortPrice);
     if (datasort) {
       setData(datasort);
@@ -120,24 +110,20 @@ const Inear = () => {
   };
   const selectbybrand = (value) => {
     if (value !== "All") {
-      filterbybrand(value, "In Ear");
+      filterbybrand(value, "Allproduct");
       setToggleRoom(!toggleRoom);
       setSelectedBrands(value);
       console.log(filterbrands);
     } else {
       setSelectedBrands("Brands");
       setToggleRoom(!toggleRoom);
-      setData([...Ineardata]);
+      setData([...Allproductdata]);
     }
   };
 
   const searchprice = () => {
     setSelectedBrands("Brands");
-    filterbyprice(
-      minprice.current.value,
-      maxprice.current.value,
-      "In Ear"
-    );
+    filterbyprice(minprice.current.value, maxprice.current.value, "Allproduct");
   };
 
   var uniq = sorteddata
@@ -159,7 +145,7 @@ const Inear = () => {
         <Row className="mb-3">
           <Col>
             <h1 className="text-topic" style={{ color: "#16193a" }}>
-              Inear
+              All Product
             </h1>
           </Col>
         </Row>
@@ -323,7 +309,6 @@ const Inear = () => {
                     style={{ border: "none", cursor: "pointer" }}
                     onMouseEnter={() => changeimage(index)}
                     onMouseLeave={() => setHoverimage(!hoverimage)}
-                    
                   >
                     {hoverimage && imageid === index && productid === "" ? (
                       <Image
@@ -425,4 +410,4 @@ const Inear = () => {
   );
 };
 
-export default Inear;
+export default Allproduct;

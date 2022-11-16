@@ -6,6 +6,7 @@ import Headphone from "./components/product/headphone";
 import Earbud from "./components/product/earbud";
 import Inear from "./components/product/inear";
 import Speaker from "./components/product/speaker";
+import Allproduct from "./components/product/allproduct";
 import Productdescription from "./components/product/productdescription";
 import Checkout from "./components/checkout";
 import Wishlist from "./components/wishlist";
@@ -33,6 +34,7 @@ const App = () => {
               <Route exact path="/earbud" component={Earbud} />
               <Route exact path="/inear" component={Inear} />
               <Route exact path="/speaker" component={Speaker} />
+              <Route exact path="/all" component={Allproduct} />
               <Route exact path="/description" component={Productdescription} />
               <Route exact path="/checkout" component={Checkout} />
               <Route exact path="/wishlist" component={Wishlist} />

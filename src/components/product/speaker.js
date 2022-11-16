@@ -26,7 +26,7 @@ const Speaker = () => {
   const [data, setData] = useState([...Speakerdata]);
   const [sorteddata, setSorteddata] = useState([...Speakerdata]);
   const [selectbrands, setSelectedBrands] = useState("Brands");
-  const [pricelowtohigh, setPriceLowtoHigh] = useState("Low to High");
+  const [pricelowtohigh, setPriceLowtoHigh] = useState("Price");
   const [hoverimage, setHoverimage] = useState(false);
   const [toggleRoom, setToggleRoom] = useState(false);
   const [togglePrice, setTogglePrice] = useState(false);
@@ -106,6 +106,7 @@ const Speaker = () => {
     setColorid(index2);
   };
   const sortprice = (value) => {
+    setSelectedBrands("Brands");
     sortbyprice(value, "Bluetooth-Speaker");
     setPriceLowtoHigh(value);
     setToggleSortPrice(!toggleSortPrice);
@@ -131,6 +132,7 @@ const Speaker = () => {
   };
 
   const searchprice = () => {
+    setSelectedBrands("Brands");
     filterbyprice(
       minprice.current.value,
       maxprice.current.value,
@@ -282,6 +284,11 @@ const Speaker = () => {
             <div style={{ position: "relative" }}>
               <h6 style={{ cursor: "pointer" }} onClick={() => opensort()}>
                 Sort by: {pricelowtohigh}
+                {toggleSortPrice ? (
+                  <IoIosArrowUp style={{ marginLeft: "5px" }} />
+                ) : (
+                  <IoIosArrowDown style={{ marginLeft: "5px" }} />
+                )}
               </h6>
 
               {toggleSortPrice ? (

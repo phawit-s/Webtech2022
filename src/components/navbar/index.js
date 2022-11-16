@@ -65,6 +65,9 @@ const Navbarcomponent = () => {
             <Nav.Link href="/speaker" className="ml-4 mt-1">
               Speaker
             </Nav.Link>
+            <Nav.Link href="/all" className="mx-4 mt-1">
+              All Product
+            </Nav.Link>
 
             <Navbar.Toggle />
             <Navbar.Collapse className="justify-content-end">

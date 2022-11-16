@@ -1,20 +1,10 @@
-import React, {
-  useEffect,
-  useState,
-  useRef,
-} from "react";
-import {  useHistory } from "react-router-dom";
+import React, { useEffect, useState, useRef } from "react";
+import { useHistory } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import headphonedata from "../../assets/Headphone.json";
-import {
-  Form,
-  Button,
-  Card,
-  Image,
-  InputGroup,
-} from "react-bootstrap";
+import { Form, Button, Card, Image, InputGroup } from "react-bootstrap";
 import Navbarcomponent from "../navbar";
 import Footer from "../footer";
 import { useAuth } from "../../contexts/AuthContext";
@@ -26,7 +16,7 @@ const Headphone = () => {
   const [data, setData] = useState([...headphonedata]);
   const [sorteddata, setSorteddata] = useState([...headphonedata]);
   const [selectbrands, setSelectedBrands] = useState("Brands");
-  const [pricelowtohigh, setPriceLowtoHigh] = useState("Low to High");
+  const [pricelowtohigh, setPriceLowtoHigh] = useState("Price");
   const [hoverimage, setHoverimage] = useState(false);
   const [toggleRoom, setToggleRoom] = useState(false);
   const [togglePrice, setTogglePrice] = useState(false);
@@ -107,6 +97,7 @@ const Headphone = () => {
   };
   const sortprice = (value) => {
     sortbyprice(value, "WirelessHeadphone");
+    setSelectedBrands("Brands");
     setPriceLowtoHigh(value);
     setToggleSortPrice(!toggleSortPrice);
     if (datasort) {
@@ -131,6 +122,7 @@ const Headphone = () => {
   };
 
   const searchprice = () => {
+    setSelectedBrands("Brands");
     filterbyprice(
       minprice.current.value,
       maxprice.current.value,
@@ -217,7 +209,7 @@ const Headphone = () => {
 
               <div>
                 <h6
-                  style={{ color: "#16193a", cursor:"pointer" }}
+                  style={{ color: "#16193a", cursor: "pointer" }}
                   className="mx-5"
                   onClick={() => openPrice()}
                 >
@@ -282,6 +274,11 @@ const Headphone = () => {
             <div style={{ position: "relative" }}>
               <h6 style={{ cursor: "pointer" }} onClick={() => opensort()}>
                 Sort by: {pricelowtohigh}
+                {toggleSortPrice ? (
+                  <IoIosArrowUp style={{ marginLeft: "5px" }} />
+                ) : (
+                  <IoIosArrowDown style={{ marginLeft: "5px" }} />
+                )}
               </h6>
 
               {toggleSortPrice ? (
@@ -316,7 +313,6 @@ const Headphone = () => {
                     style={{ border: "none", cursor: "pointer" }}
                     onMouseEnter={() => changeimage(index)}
                     onMouseLeave={() => setHoverimage(!hoverimage)}
-                    
                   >
                     {hoverimage && imageid === index && productid === "" ? (
                       <Image
