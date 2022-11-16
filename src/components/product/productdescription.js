@@ -13,6 +13,7 @@ import {
   Image,
   Breadcrumb,
   Carousel,
+  Container,
 } from "react-bootstrap";
 import Navbarcomponent from "../navbar";
 import Footer from "../footer";
@@ -34,7 +35,7 @@ const Productdescription = () => {
 
   const changepage = (index) => {
     gotodetail(sugdata[index]);
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
   };
 
   const changeimage = async (index) => {
@@ -59,136 +60,135 @@ const Productdescription = () => {
   return (
     <>
       <Navbarcomponent />
-      <div>
-        <div style={{ float: "left", width: "15%", height: "1900px" }} />
-        <div
-          id="Mscreen"
-          style={{
-            marginTop: "20px",
-            height: "1800px",
-            float: "left",
-            width: "70%",
-          }}
-        >
-          <div style={{ width: "60%", float: "left" }}>
+      <Container fluid>
+        <Row>
+          <div style={{ float: "left", width: "15%", height: "1900px" }} />
+          <div
+            id="Mscreen"
+            style={{
+              marginTop: "20px",
+              height: "1800px",
+              float: "left",
+              width: "70%",
+            }}
+          >
+            <div style={{ width: "60%", float: "left" }}>
+              <div
+                style={{
+                  maxWidth: "800px",
+                  height: "1px",
+                  padding: "0px",
+                  marginBottom: "20px",
+                }}
+              >
+                {data.map((item, index) => {
+                  return (
+                    <div key={index}>
+                      {item.product_options[selectedoption].image_name.map(
+                        (image, index) => {
+                          if (index === 0 || index === 3) {
+                            return (
+                              <Image
+                                src={`/image/${image}`}
+                                width={"90%"}
+                                key={index}
+                                style={{
+                                  position: "relative",
+                                }}
+                              />
+                            );
+                          } else {
+                            return (
+                              <Image
+                                src={`/image/${image}`}
+                                width={"45%"}
+                                key={index}
+                                style={{
+                                  position: "relative",
+                                }}
+                              />
+                            );
+                          }
+                        }
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
             <div
+              id="right"
               style={{
-                maxWidth: "800px",
-                height: "1px",
-                padding: "0px",
-                marginBottom: "20px",
+                top: "0",
+                position: "sticky",
+                width: "40%",
+                float: "right",
               }}
             >
-              {data.map((item, index) => {
+              {data.map((value, index) => {
                 return (
                   <div key={index}>
-                    {item.product_options[selectedoption].image_name.map(
-                      (image, index) => {
-                        if (index === 0 || index === 3) {
-                          return (
-                            <Image
-                              src={`/image/${image}`}
-                              width={"100%"}
-                              key={index}
-                              style={{
-                                position: "relative",
-                              }}
-                            />
-                          );
-                        } else {
-                          return (
-                            <Image
-                              src={`/image/${image}`}
-                              width={"45%"}
-                              key={index}
-                              style={{
-                                position: "relative",
-                              }}
-                            />
-                          );
-                        }
-                      }
-                    )}
+                    <h2
+                      style={{
+                        margin: "20px",
+                        fontSize: "40px",
+                        color: "#16193a",
+                      }}
+                    >
+                      {value.name}
+                    </h2>
+
+                    {value.product_options.map((productimage, index2) => {
+                      return (
+                        <Image
+                          src={`/image/${productimage.image_name[0]}`}
+                          width="70"
+                          height="70"
+                          key={index2}
+                          style={{ cursor: "pointer", margin: "10px" }}
+                          onClick={() => changeoption(index2)}
+                        />
+                      );
+                    })}
+
+                    <h3 style={{ margin: "15px" }}>
+                      {value.price.toLocaleString("th-TH", {
+                        style: "currency",
+                        currency: "THB",
+                      })}
+                    </h3>
+
+                    <div id="describe">
+                      <hr className="line one" />
+                      <details>
+                        <summary>Description &amp; Size</summary>
+                        <p className="word">I am the bone of my sword</p>
+                      </details>
+                      <hr className="line two" />
+                      <details>
+                        <summary>Shipping &amp; Returns</summary>
+                        <p className="word">
+                          Steel is my body and fire is my blood.
+                        </p>
+                      </details>
+                      <hr className="line three" />
+                      <details>
+                        <summary>Environmental impact</summary>
+                        <p className="word">
+                          I have created over a thousand blade.
+                        </p>
+                      </details>
+                      <hr className="line four" />
+                    </div>
                   </div>
                 );
               })}
             </div>
           </div>
+        </Row>
 
-          <div
-            id="right"
-            style={{
-              top: "0",
-              position: "sticky",
-              width: "40%",
-              float: "right",
-            }}
-          >
-            {data.map((value, index) => {
-              return (
-                <div key={index}>
-                  <h2
-                    
-                    style={{
-                      margin: "20px",
-                      fontSize: "40px",
-                      color: "#16193a",
-                    }}
-                  >
-                    {value.name}
-                  </h2>
 
-                  {value.product_options.map((productimage, index2) => {
-                    return (
-                      <Image
-                        src={`/image/${productimage.image_name[0]}`}
-                        width="70"
-                        height="70"
-                        key={index2}
-                        style={{ cursor: "pointer", margin: "10px" }}
-                        onClick={() => changeoption(index2)}
-                      />
-                    );
-                  })}
-
-                  <h3 style={{ margin: "15px" }}>
-                    {value.price.toLocaleString("th-TH", {
-                      style: "currency",
-                      currency: "THB",
-                    })}
-                  </h3>
-
-                  <div id="describe">
-                    <hr className="line one" />
-                    <details>
-                      <summary>Description &amp; Size</summary>
-                      <p className="word">I am the bone of my sword</p>
-                    </details>
-                    <hr className="line two" />
-                    <details>
-                      <summary>Shipping &amp; Returns</summary>
-                      <p className="word">
-                        Steel is my body and fire is my blood.
-                      </p>
-                    </details>
-                    <hr className="line three" />
-                    <details>
-                      <summary>Environmental impact</summary>
-                      <p className="word">
-                        I have created over a thousand blade.
-                      </p>
-                    </details>
-                    <hr className="line four" />
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-        <div
-          id="Rscreen"
-          style={{ float: "left", width: "15%", height: "1900px" }}
-        />
         <div style={{ float: "left", marginLeft: "15%" }}>
           <div>
             <div id="main">
@@ -309,7 +309,7 @@ const Productdescription = () => {
           </div>
         </div>
         <Footer />
-      </div>
+      </Container>
     </>
   );
 };
