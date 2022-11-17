@@ -65,7 +65,6 @@ const Productdescription = () => {
   };
   const changeoption = (index) => {
     setSelectedoption(index);
-    console.log("test", index);
   };
   return (
     <>
@@ -159,7 +158,6 @@ const Productdescription = () => {
                       {value.brand}
                     </h4>
 
-
                     {value.product_options.map((productimage, index2) => {
                       return (
                         <Image
@@ -172,13 +170,44 @@ const Productdescription = () => {
                         />
                       );
                     })}
+                    {value.priceBrforeDiscounted ? (
+                      <Col>
+                        <div className="d-flex">
+                          <h4
+                            style={{
+                              marginLeft: "30px",
 
-                    <h3 style={{ margin: "15px" }}>
-                      {value.price.toLocaleString("th-TH", {
-                        style: "currency",
-                        currency: "THB",
-                      })}
-                    </h3>
+                              textDecoration: "line-through",
+                            }}
+                          >
+                            {value.priceBrforeDiscounted.toLocaleString(
+                              "th-TH",
+                              {
+                                style: "currency",
+                                currency: "THB",
+                              }
+                            )}
+                          </h4>
+                          <h4
+                            style={{
+                              marginLeft: "30px",
+                            }}
+                          >
+                            {value.price.toLocaleString("th-TH", {
+                              style: "currency",
+                              currency: "THB",
+                            })}
+                          </h4>
+                        </div>
+                      </Col>
+                    ) : (
+                      <h3 style={{ margin: "15px" }}>
+                        {value.price.toLocaleString("th-TH", {
+                          style: "currency",
+                          currency: "THB",
+                        })}
+                      </h3>
+                    )}
                     <Col>
                       <Button
                         onClick={() => pickcart(index)}

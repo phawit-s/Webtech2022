@@ -49,6 +49,7 @@ const Checkout = () => {
   const payment = () => {
     window.localStorage.removeItem("productcart");
     window.localStorage.removeItem("checkoutcart");
+
     addToast("Thank You", {
       appearance: "success",
       autoDismiss: true,
@@ -56,6 +57,7 @@ const Checkout = () => {
     history.push({
       pathname: `/`,
     });
+    window.location.reload();
   };
 
   const subTotalPrice = useMemo(() => {
@@ -95,9 +97,6 @@ const Checkout = () => {
                   className="text-mini pt-1"
                   label="Email me with news and offers"
                 />
-                {/* <Form.Text className="text-muted">
-                                        We'll never share your email with anyone else.
-                                    </Form.Text> */}
               </Form.Group>
 
               <Form.Group className="mb-3">
