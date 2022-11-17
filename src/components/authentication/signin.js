@@ -98,7 +98,7 @@ const Signin = () => {
                 <Form.Group className="mb-4">
                   <Button
                     variant="submit px-3"
-                    type="button"
+                    type="submit"
                     onClick={() => submitlogin()}
                   >
                     LOGIN
