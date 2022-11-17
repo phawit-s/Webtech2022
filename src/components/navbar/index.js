@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
-import { useHistory, Redirect } from "react-router-dom";
-import { Row, Col } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
+import { Row } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { useAuth } from "../../contexts/AuthContext";

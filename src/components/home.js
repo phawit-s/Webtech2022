@@ -3,19 +3,15 @@ import { Redirect } from "react-router-dom";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import suggestiondata from "../assets/Suggestion.json";
-import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai";
+import { AiOutlineHeart } from "react-icons/ai";
 import { useAuth } from "../contexts/AuthContext";
 import { useToasts } from "react-toast-notifications";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
-
 import {
   Container,
-  Button,
   Card,
   Image,
-  Breadcrumb,
-  Carousel,
 } from "react-bootstrap";
 import Navbarcomponent from "./navbar";
 import Footer from "./footer";
@@ -28,7 +24,6 @@ const Home = () => {
   const [sugdata, setSugdata] = useState([...suggestiondata]);
   const [buttonhover, setbuttonhover] = useState(false);
   const [hoverimage, setHoverimage] = useState(false);
-  const [selectedoption, setSelectedoption] = useState("0");
   const [imageid, setImageid] = useState("");
   const [productid, setProductid] = useState("");
   const [colorid, setColorid] = useState("");

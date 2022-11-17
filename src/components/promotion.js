@@ -9,7 +9,6 @@ import Navbarcomponent from "./navbar";
 import Footer from "./footer";
 import { useAuth } from "../contexts/AuthContext";
 import { useToasts } from "react-toast-notifications";
-import { AiOutlineHeart } from "react-icons/ai";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 const Promotion = () => {
@@ -36,7 +35,6 @@ const Promotion = () => {
         filterbybrand,
         filterbyprice,
         sortbyprice,
-        addtocart,
         gotodetail,
     } = useAuth();
 
@@ -355,7 +353,7 @@ const Promotion = () => {
                                             alignItems: "center",
                                             width: "5rem",
                                             height: " 5rem",
-                                            backgroundColor: "rgb(255, 135, 135)",
+                                            backgroundColor: "rgb(255, 120, 135)",
                                             borderRadius: "10rem",
                                             border: "1px solid black",
                                             right: "0",
@@ -392,6 +390,7 @@ const Promotion = () => {
                                             style={{
                                                 marginLeft: "30px",
                                                 fontSize: "20px",
+                                                color: "red",
                                                 textDecoration: "line-through"
                                             }}
                                         >

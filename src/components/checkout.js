@@ -1,17 +1,14 @@
 import React, { useEffect, useState, useMemo } from "react";
-import { Redirect, useHistory, Link } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import {
   Form,
   Button,
-  Card,
-  Image,
   Breadcrumb,
   Carousel,
 } from "react-bootstrap";
-import rawItem from "../assets/Inear.json";
 import { useAuth } from "../contexts/AuthContext";
 import { useToasts } from "react-toast-notifications";
 import Countries from "../assets/countries.json";
@@ -60,13 +57,7 @@ const Checkout = () => {
     window.location.reload();
   };
 
-  const subTotalPrice = useMemo(() => {
-    let sum = 0;
-    items.forEach((item, i) => {
-      sum += item.price;
-    });
-    return sum;
-  }, [items]);
+
 
   return (
     <>

@@ -4,16 +4,12 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import {
-  Form,
   Button,
   Card,
-  Image,
-  Breadcrumb,
   Carousel,
   Dropdown,
   Modal,
 } from "react-bootstrap";
-import rawItem from "../assets/Headphone.json";
 import { useAuth } from "../contexts/AuthContext";
 import Navbarcomponent from "./navbar";
 import { useToasts } from "react-toast-notifications";
@@ -73,8 +69,8 @@ const Wishlist = () => {
         price += item.price;
       });
       return price;
-    }else{
-      return 0
+    } else {
+      return 0;
     }
     // TODO: Calculate subtotal price
   }, [selected, items]);
@@ -182,16 +178,46 @@ const Wishlist = () => {
                       </Col>
                       <Col md={10} className="pb-3">
                         <h3 className="pb-2 text-medium">
-                          {item.id} {item.name}
+                          {item.name}
                         </h3>
-                        <h5>
-                          <span className="is-right has-text-info text-small">
+
+                        {item.priceBrforeDiscounted ? (
+                          <Col>
+                            <div className="d-flex">
+                              <h5
+                                style={{
+                                  color: "red",
+                                  textDecoration: "line-through",
+                                }}
+                              >
+                                {item.priceBrforeDiscounted.toLocaleString(
+                                  "th-TH",
+                                  {
+                                    style: "currency",
+                                    currency: "THB",
+                                  }
+                                )}
+                              </h5>
+                              <h5
+                                style={{
+                                  marginLeft: "10px",
+                                }}
+                              >
+                                {item.price.toLocaleString("th-TH", {
+                                  style: "currency",
+                                  currency: "THB",
+                                })}
+                              </h5>
+                            </div>
+                          </Col>
+                        ) : (
+                          <h5 style={{ margin: "15px" }}>
                             {item.price.toLocaleString("th-TH", {
                               style: "currency",
                               currency: "THB",
                             })}
-                          </span>
-                        </h5>
+                          </h5>
+                        )}
                         <Row className="pt-2">
                           <Button
                             type="submit"

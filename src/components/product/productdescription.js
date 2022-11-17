@@ -1,17 +1,14 @@
-import React, { useEffect, useState, useCallback, useMemo } from "react";
+import React, { useEffect, useState } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import suggestiondata from "../../assets/Suggestion.json";
-import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai";
+import { AiOutlineHeart } from "react-icons/ai";
 import { useAuth } from "../../contexts/AuthContext";
 import { useToasts } from "react-toast-notifications";
 import {
-  Form,
   Button,
   Card,
   Image,
-  Breadcrumb,
-  Carousel,
   Container,
 } from "react-bootstrap";
 import Navbarcomponent from "../navbar";

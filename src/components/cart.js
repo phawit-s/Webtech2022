@@ -1,24 +1,19 @@
 import React, { useEffect, useState, useCallback, useMemo } from "react";
-import { Redirect, useHistory, Link } from "react-router-dom";
+import {  useHistory, Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import {
-  Form,
   Button,
-  Card,
-  Image,
-  Breadcrumb,
   Carousel,
 } from "react-bootstrap";
-import rawItem from "../assets/Speaker.json";
 import { useAuth } from "../contexts/AuthContext";
 import Navbarcomponent from "./navbar";
 
 const Cart = () => {
   const { productcart, checkout, gotodetail } = useAuth();
   const history = useHistory();
-  const [items, setItems] = useState([...rawItem]);
+  const [items, setItems] = useState([...productcart]);
   const [itemsInCart, setItemsInCart] = useState([...items.map((_) => 1)]);
 
   useEffect(() => {
@@ -35,7 +30,7 @@ const Cart = () => {
       pathname: `/checkout`,
     });
   };
-
+  
   const increaseItemToCart = useCallback(
     (index) => {
       const updatedCarts = [...itemsInCart];
@@ -115,7 +110,7 @@ const Cart = () => {
         </Row>
         <hr></hr>
         <Row>
-          {result.map((item, i) => {
+          {items.map((item, i) => {
             return (
               <>
                 <Col md={6} className="py-3" key={item.id}>
