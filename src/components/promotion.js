@@ -306,7 +306,7 @@ const Promotion = () => {
                                     >
                                         {hoverimage && imageid === index && productid === "" ? (
                                             <Image
-                                                src={`/image/${productdata.product_options[0].image_name[1]}`}
+                                                src={`${process.env.PUBLIC_URL}/image/${productdata.product_options[0].image_name[1]}`}
                                                 width={"350px"}
                                                 height={"350px"}
                                                 onClick={() => changepage(index)}
@@ -318,7 +318,7 @@ const Promotion = () => {
                                             imageid === index &&
                                             productid === index ? (
                                             <Image
-                                                src={`/image/${productdata.product_options[colorid].image_name[1]}`}
+                                                src={`${process.env.PUBLIC_URL}/image/${productdata.product_options[colorid].image_name[1]}`}
                                                 width={"350px"}
                                                 height={"350px"}
                                                 onClick={() => changepage(index)}
@@ -328,7 +328,7 @@ const Promotion = () => {
                                             />
                                         ) : productid === index ? (
                                             <Image
-                                                src={`/image/${productdata.product_options[colorid].image_name[0]}`}
+                                                src={`${process.env.PUBLIC_URL}/image/${productdata.product_options[colorid].image_name[0]}`}
                                                 width={"350px"}
                                                 height={"350px"}
                                                 onClick={() => changepage(index)}
@@ -338,7 +338,7 @@ const Promotion = () => {
                                             />
                                         ) : (
                                             <Image
-                                                src={`/image/${productdata.product_options[0].image_name[0]}`}
+                                                src={`${process.env.PUBLIC_URL}/image/${productdata.product_options[0].image_name[0]}`}
                                                 width={"350px"}
                                                 height={"350px"}
                                                 onClick={() => changepage(index)}
@@ -371,7 +371,7 @@ const Promotion = () => {
                                         {productdata.product_options.map((productimage, index2) => {
                                             return (
                                                 <Image
-                                                    src={`/image/${productimage.image_name[0]}`}
+                                                    src={`${process.env.PUBLIC_URL}/image/${productimage.image_name[0]}`}
                                                     width="70"
                                                     height="70"
                                                     key={index2}

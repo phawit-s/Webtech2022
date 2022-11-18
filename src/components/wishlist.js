@@ -154,7 +154,7 @@ const Wishlist = () => {
                               onClick={() => changepage(index)}
                               style={{ cursor: "pointer" }}
                               className="d-block w-100"
-                              src={`/image/${e}`}
+                              src={`${process.env.PUBLIC_URL}/image/${e}`}
                               alt="First slide"
                             />
                           </Carousel.Item>

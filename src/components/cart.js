@@ -127,7 +127,7 @@ const Cart = () => {
                                   className="d-block w-50 mx-auto d-block"
                                   style={{ cursor: "pointer" }}
                                   onClick={() => changepage(i)}
-                                  src={`/image/${e}`}
+                                  src={`${process.env.PUBLIC_URL}/image/${e}`}
                                   alt="First slide"
                                 />
                               </Carousel.Item>

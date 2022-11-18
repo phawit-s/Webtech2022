@@ -95,7 +95,7 @@ const Productdescription = () => {
                           if (index === 0 || index === 3) {
                             return (
                               <Image
-                                src={`/image/${image}`}
+                                src={`${process.env.PUBLIC_URL}/image/${image}`}
                                 width={"90%"}
                                 key={index}
                                 style={{
@@ -106,7 +106,7 @@ const Productdescription = () => {
                           } else {
                             return (
                               <Image
-                                src={`/image/${image}`}
+                                src={`${process.env.PUBLIC_URL}/image/${image}`}
                                 width={"45%"}
                                 key={index}
                                 style={{
@@ -158,7 +158,7 @@ const Productdescription = () => {
                     {value.product_options.map((productimage, index2) => {
                       return (
                         <Image
-                          src={`/image/${productimage.image_name[0]}`}
+                          src={`${process.env.PUBLIC_URL}/image/${productimage.image_name[0]}`}
                           width="70"
                           height="70"
                           key={index2}
@@ -323,7 +323,7 @@ const Productdescription = () => {
                       >
                         {hoverimage && imageid === index && productid === "" ? (
                           <Image
-                            src={`/image/${productdata.product_options[0].image_name[1]}`}
+                            src={`${process.env.PUBLIC_URL}/image/${productdata.product_options[0].image_name[1]}`}
                             width={"350px"}
                             height={"350px"}
                             onClick={() => changepage(index)}
@@ -335,7 +335,7 @@ const Productdescription = () => {
                           imageid === index &&
                           productid === index ? (
                           <Image
-                            src={`/image/${productdata.product_options[colorid].image_name[1]}`}
+                            src={`${process.env.PUBLIC_URL}/image/${productdata.product_options[colorid].image_name[1]}`}
                             width={"350px"}
                             height={"350px"}
                             onClick={() => changepage(index)}
@@ -345,7 +345,7 @@ const Productdescription = () => {
                           />
                         ) : productid === index ? (
                           <Image
-                            src={`/image/${productdata.product_options[colorid].image_name[0]}`}
+                            src={`${process.env.PUBLIC_URL}/image/${productdata.product_options[colorid].image_name[0]}`}
                             width={"350px"}
                             height={"350px"}
                             onClick={() => changepage(index)}
@@ -355,7 +355,7 @@ const Productdescription = () => {
                           />
                         ) : (
                           <Image
-                            src={`/image/${productdata.product_options[0].image_name[0]}`}
+                            src={`${process.env.PUBLIC_URL}/image/${productdata.product_options[0].image_name[0]}`}
                             width={"350px"}
                             height={"350px"}
                             onClick={() => changepage(index)}
@@ -383,7 +383,7 @@ const Productdescription = () => {
                           (productimage, index2) => {
                             return (
                               <Image
-                                src={`/image/${productimage.image_name[0]}`}
+                                src={`${process.env.PUBLIC_URL}/image/${productimage.image_name[0]}`}
                                 width="70"
                                 height="70"
                                 key={index2}

@@ -218,7 +218,7 @@ const Checkout = () => {
                             <Carousel.Item>
                               <img
                                 className="d-block w-75 mx-auto d-block border rounded"
-                                src={`/image/${e}`}
+                                src={`${process.env.PUBLIC_URL}/image/${e}`}
                                 alt="First slide"
                               />
                             </Carousel.Item>

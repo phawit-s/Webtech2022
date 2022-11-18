@@ -26,7 +26,7 @@ const App = () => {
     >
       <ToastProvider>
         <AuthProvider>
-          <Router>
+          <Router basename="/project/it17/it17">
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/register" component={Register} />
