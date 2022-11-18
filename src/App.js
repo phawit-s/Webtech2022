@@ -28,19 +28,19 @@ const App = () => {
         <AuthProvider>
           <Router basename="/project/it17/it17">
             <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/register" component={Register} />
-              <Route exact path="/signin" component={Signin} />
-              <Route exact path="/headphone" component={Headphone} />
-              <Route exact path="/earbud" component={Earbud} />
-              <Route exact path="/inear" component={Inear} />
-              <Route exact path="/speaker" component={Speaker} />
-              <Route exact path="/all" component={Allproduct} />
-              <Route exact path="/description" component={Productdescription} />
-              <Route exact path="/checkout" component={Checkout} />
-              <Route exact path="/wishlist" component={Wishlist} />
-              <Route exact path="/cart" component={Cart} />
-              <Route exact path="/promotion" component={Promotion} />
+              <Route path="/" component={Home} />
+              <Route path="/register" component={Register} />
+              <Route path="/signin" component={Signin} />
+              <Route path="/headphone" component={Headphone} />
+              <Route path="/earbud" component={Earbud} />
+              <Route path="/inear" component={Inear} />
+              <Route path="/speaker" component={Speaker} />
+              <Route path="/all" component={Allproduct} />
+              <Route path="/description" component={Productdescription} />
+              <Route path="/checkout" component={Checkout} />
+              <Route path="/wishlist" component={Wishlist} />
+              <Route path="/cart" component={Cart} />
+              <Route path="/promotion" component={Promotion} />
             </Switch>
           </Router>
         </AuthProvider>
