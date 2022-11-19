@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Row } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -17,7 +17,7 @@ const Navbarcomponent = () => {
   const { currentUser } = useAuth();
   const { addToast } = useToasts();
 
-  const logout = () =>{
+  const logout = () => {
     history.push({
       pathname: `/signin`,
     })
@@ -42,15 +42,21 @@ const Navbarcomponent = () => {
       >
         <Container fluid>
           <Nav className="me-auto">
-            <Nav.Link href="/headphone" className="mx-4 mt-1">
-              Headphone
-            </Nav.Link>
-            <Nav.Link href="/inear" className="mt-1">
-              Inear
-            </Nav.Link>
-            <Nav.Link href="/earbud" className="mx-4 mt-1">
-              Earbud
-            </Nav.Link>
+            <Link to="/headphone" className="mx-4 mt-1 text-dark">
+              {/* <Nav.Link> */}
+                Headphone
+              {/* </Nav.Link> */}
+            </Link>
+            <Link to="/inear" className="mt-1 text-dark">
+              {/* <Nav.Link> */}
+                Inear
+              {/* </Nav.Link> */}
+            </Link>
+            <Link to="/earbud" className="mx-4 mt-1 text-dark">
+              {/* <Nav.Link > */}
+                Earbud
+              {/* </Nav.Link> */}
+            </Link>
           </Nav>
         </Container>
       </Navbar>
@@ -67,12 +73,16 @@ const Navbarcomponent = () => {
           }}
         >
           <Container fluid className="px-5">
-            <Navbar.Brand href="/" className="mx-4">
-              Home
-            </Navbar.Brand>
-            <Nav.Link href="/promotion" className="ml-5 mt-1">
-              Promotion
-            </Nav.Link>
+            <Link to="/">
+              <Navbar.Brand className="mx-4 text-dark">
+                Home
+              </Navbar.Brand>
+            </Link>
+            <Link to="/promotion" className="ml-5 mt-1 text-dark">
+              {/* <Nav.Link> */}
+                Promotion
+              {/* </Nav.Link> */}
+            </Link>
             <Nav
               className="mx-4 mt-1"
               style={{ cursor: "pointer" }}
@@ -88,13 +98,16 @@ const Navbarcomponent = () => {
               )}
             </Nav>
 
-            <Nav.Link href="/speaker" className="ml-5 mt-1">
-              Speaker
-            </Nav.Link>
-            <Nav.Link href="/all" className="mx-4 mt-1">
-              All Product
-            </Nav.Link>
-
+            <Link to="/speaker" className="ml-5 mt-1 text-dark">
+              {/* <Nav.Link> */}
+                Speaker
+              {/* </Nav.Link> */}
+            </Link>
+            <Link to="/all" className="mx-4 mt-1 text-dark">
+              {/* <Nav.Link> */}
+                All Product
+              {/* </Nav.Link> */}
+            </Link>
             <Navbar.Toggle />
             <Navbar.Collapse className="justify-content-end">
               <div>

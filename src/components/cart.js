@@ -238,7 +238,6 @@ const Cart = () => {
                   <Button
                     type="submit"
                     onClick={() => checktopay()}
-                    href="/checkout"
                     className="rounded-pill btn-lg text-topic"
                     style={{
                       backgroundColor: "#16193a",
