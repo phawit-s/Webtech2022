@@ -13,7 +13,8 @@ const Signin = () => {
   const history = useHistory();
   const getlogininfo = window.localStorage.getItem("logininfo");
   const logininfo = getlogininfo ? JSON.parse(getlogininfo) : [];
-  const submitlogin = () => {
+  const submitlogin = (e) => {
+    e.preventDefault();
     if (logininfo) {
       if (
         logininfo.email === email.current.value &&
@@ -79,7 +80,7 @@ const Signin = () => {
         <Container>
           <Row>
             <div className="wrap col-6 mx-auto">
-              <Form>
+              <Form onSubmit={(e) => submitlogin(e)}>
                 <h3 className="mb-4 text-center">MEMBER LOGIN</h3>
                 <Form.Group className="mb-4 my-3">
                   <Form.Control
@@ -96,11 +97,7 @@ const Signin = () => {
                   />
                 </Form.Group>
                 <Form.Group className="mb-4">
-                  <Button
-                    variant="submit px-3"
-                    type="submit"
-                    onClick={() => submitlogin()}
-                  >
+                  <Button variant="submit px-3" type="submit">
                     LOGIN
                   </Button>
                 </Form.Group>

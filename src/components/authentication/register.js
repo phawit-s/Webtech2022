@@ -32,6 +32,7 @@ const Register = () => {
       history.push({
         pathname: `/signin`,
       });
+      window.location.reload();
     } else {
       addToast("Password don't match", {
         appearance: "error",
